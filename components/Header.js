@@ -35,7 +35,7 @@ export default class Header extends React.Component{
     return (
      	<header>
           <Link
-            className="logo fade-in"
+            className="logo"
             to={prefixLink('/')}
             alt="redbeak.net"
           ></Link>

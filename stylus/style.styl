@@ -96,7 +96,6 @@ body
 main
 	max-width 100%
 	padding 1rem
-	position relative
 
 	header
 		display flex
@@ -412,11 +411,11 @@ a.menu--active
 .logo-fade
 	width 100%
 	animation logo 3.5s 0.15s cubic-bezier(0.50, 0, 0, 0.96) forwards
-	opacity 1
+	opacity 0
 	position absolute
-	top 10%
-	left 50%
-	transform translateX(-50%) translateY(-10%) scale(1)
+	top 50vh
+	left 50vw
+	transform translateX(-50vw) translateY(-50vh) scale(1)
 
 
 @keyframes logo
@@ -600,7 +599,7 @@ footer
 		text-align center
 
 .fade-in
-	animation fadeInBody 0.3s 3s ease-in forwards
+	animation fadeInBody 0.3s ease-in forwards
 	opacity 0
 
 @keyframes fadeInBody
@@ -608,15 +607,6 @@ footer
 		opacity 0
 	100%
 		opacity 1
-
-.fade-up
-	animation fadeUp 0.3s 3s ease-in forwards
-
-@keyframes fadeUp
-	0%
-		transform translateY(2em)
-	100%
-		transform translateY(0)
 
 @media screen and (min-width: 520px)
 	.content
@@ -634,7 +624,7 @@ footer
 		text-align center
 		margin 0 auto
 	body
-		background $white url('../assets/bg.jpg') repeat 
+		background $white url('../assets/bg.png') repeat
 	main
 		padding 2em
 	

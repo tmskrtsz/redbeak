@@ -17,7 +17,6 @@ module.exports = React.createClass({
   render () {
     return (
       <main>
-        <div className="logo logo-fade"></div>
         <Header />
         <div className="wrapper" className="fade-in">
           {this.props.children}
