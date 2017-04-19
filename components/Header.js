@@ -40,7 +40,7 @@ export default class Header extends React.Component{
             alt="redbeak.net"
           ></Link>
           <a 
-            className={(this.state.active) ? 'menu menu--active' : 'menu fade-in'}
+            className={(this.state.active) ? 'menu menu--active' : 'menu'}
             href="#" 
             alt="It's a menu"
             onClick={this.toggleMenu}>

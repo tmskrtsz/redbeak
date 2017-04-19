@@ -18,7 +18,7 @@ module.exports = React.createClass({
     return (
       <main>
         <Header />
-        <div className="wrapper" className="fade-in">
+        <div className="wrapper">
           {this.props.children}
         </div>
         <Hook />
