@@ -3,6 +3,8 @@ import Helmet from 'react-helmet'
 
 import { prefixLink } from 'gatsby-helpers'
 
+import favicon from './assets/icons/favicon.ico'
+import faviconApple from './assets/icons/apple-touch-icon-192x192.png'
 
 const BUILD_TIME = new Date().getTime()
 
@@ -14,11 +16,6 @@ module.exports = React.createClass({
   },
   render () {
     const head = Helmet.rewind()
-
-    let css
-    if (process.env.NODE_ENV === 'production') {
-      css = <style dangerouslySetInnerHTML={{ __html: require('!raw!./public/styles.css') }} />
-    }
 
     return (
       <html lang="en">
@@ -33,7 +30,8 @@ module.exports = React.createClass({
           {head.meta.toComponent()}
           <script src="https://use.typekit.net/lvy7pso.js"></script>
           <script>{'try{Typekit.load({ async: true });}catch(e){}'}</script>
-          {css}
+          <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+          <link rel="apple-touch-icon" href={faviconApple} sizes="192x192" />
         </head>
         <body>
           <div id="react-mount" dangerouslySetInnerHTML={{ __html: this.props.body }} ></div>
