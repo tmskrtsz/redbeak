@@ -2,32 +2,37 @@ import React from 'react'
 import { Link } from 'react-router'
 import { prefixLink } from 'gatsby-helpers'
 
-const pageBody = document.querySelector("body")
-
 export default class Header extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      active: false
+      active: false,
+      pageBody: ''
     }
   
     this.toggleMenu = this.toggleMenu.bind(this)
     this.clearMenu = this.clearMenu.bind(this)
   }
 
+  componentDidMount(){
+    this.pageBody = document.querySelector("body")
+  }
+
   toggleMenu(e) {
     e.preventDefault();
+
     if(!this.state.active){
       this.setState({
         active: true
       });
 
-      pageBody.style.overflow = "hidden"
+      this.pageBody.style.overflow = "hidden"
     } else {
       this.setState({
         active: false
       });
-      pageBody.style.overflow = "auto"
+      
+      this.pageBody.style.overflow = "auto"
     }
   }
 
