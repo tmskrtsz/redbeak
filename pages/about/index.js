@@ -27,8 +27,9 @@ export default class About extends React.Component{
                         <span className="ball-5"></span>
                     </div>
                     <article>
-                        <p>Tamás Kertész is primarily a Front-End designer & developer who <span className="strike">absolutely</span> enjoys taking great ideas from concept to product. To that effect, he's been heavily involved in <a href="http://tampere.demola.net" target="_blank">Demola</a> projects, such as <Link to={prefixLink('/campus-compass/')}>Campus Compass</Link>, <Link to={prefixLink('/jobfairy/')}>jobfairy</Link> and Blockchain: The Trust Machine. He likes to dabble into JavaScript and Python development and is interested in the latest emerging web frameworks such as ReactJS and Vue.js. Tamás also has a penchant for playing guitar and bass, coffee, romantic walks on the beach and talking about himself in third person. What a <span className="dick">dick</span>.</p>
-                        <p>But seriously.</p><p>I am based in sunny Tampere, Finland currently studying Interactive Media at TAMK.</p>
+                        <p>Tamás Kertész is primarily a Front-End designer & developer who <span className="strike">absolutely</span> enjoys taking great ideas from concept to product. To that effect, he's been heavily involved in <a href="http://tampere.demola.net" target="_blank">Demola</a> projects, such as <Link to={prefixLink('/campus-compass/')}>Campus Compass</Link>, <Link to={prefixLink('/jobfairy/')}>jobfairy</Link> and Blockchain: The Trust Machine. He likes to dabble into JavaScript and Python development and is interested in the latest emerging libraries such as ReactJS and Vue.js. Tamás also has a penchant for playing guitar and bass, coffee, romantic walks on the beach and talking about himself in third person. What a <span className="dick">dick</span>.</p>
+                        <p>But seriously.</p><p>I am based in sunny Tampere, Finland.</p> 
+                        <p>Currently bullying pixels at <a href="https://www.anders.fi" target="_blank">Anders Innovations</a> and studying Interactive Media at TAMK.</p>
                         <p> 
                         <a className="button" href="/files/Tamas_Kertesz_CV.pdf" alt="CV in PDF format">Download my CV</a>
                         </p>

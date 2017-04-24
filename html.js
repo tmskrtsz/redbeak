@@ -17,6 +17,18 @@ module.exports = React.createClass({
   render () {
     const head = Helmet.rewind()
 
+    let css
+
+    if (process.env.NODE_ENV === 'production') {
+      css = (
+        <style
+          dangerouslySetInnerHTML={{
+            __html: require('!raw!./public/styles.css'),
+          }}
+        />
+      )
+    }
+    
     return (
       <html lang="en">
         <head>
@@ -28,6 +40,7 @@ module.exports = React.createClass({
           />
           {head.title.toComponent()}
           {head.meta.toComponent()}
+          {css}
           <script src="https://use.typekit.net/lvy7pso.js"></script>
           <script>{'try{Typekit.load({ async: true });}catch(e){}'}</script>
           <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />

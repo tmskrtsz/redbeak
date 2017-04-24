@@ -40,6 +40,7 @@ export default class Header extends React.Component{
     this.setState({
       active: false
     });
+    this.pageBody.style.overflow = "auto"
   }
 
   render () {

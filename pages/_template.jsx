@@ -5,7 +5,7 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Hook from '../components/Hook'
 import Top from '../components/Top'
-import '../stylus/style.styl'
+import '../sass/style.sass'
 
 
 module.exports = React.createClass({
@@ -16,7 +16,7 @@ module.exports = React.createClass({
   },
   render () {
     return (
-      <main>
+      <main className="fade-in">
         <Header />
         <div className="wrapper">
           {this.props.children}
