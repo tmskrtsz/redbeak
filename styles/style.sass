@@ -1,0 +1,822 @@
+$white: #ffffff
+
+$red: #f73939
+$gray: #272838
+
+$yellow: #e6ca29
+$blue-light: #1a8fe3
+$purple: #6610f2
+$green: #39f768
+
+$font: 'proxima-nova-soft', sans-serif
+ 
+=weight($value)
+	font-weight: $value
+
+*, *:before, *:after
+	padding: 0
+	margin: 0
+	
+ul li
+	list-style: none
+	
+h1, h2, h3, h4, h5
+	color: $gray
+	margin: 0
+
+h1
+	font-size: 3rem
+
+h2
+	font-size: 2.8rem
+	line-height: 2
+
+h3
+	font-size: 2.5rem
+
+h4
+	font-size: 2.325rem
+
+h5
+	font-size: 2.134rem
+
+em
+	font-style: normal
+	color: $blue-light
+a
+	text-decoration: none
+	color: $red
+	
+	&:hover
+		color: transparentize($red, 0.2)
+		border-bottom-color: $red
+
+p
+	color: transparentize($gray, 0.15) 
+	font-size: 2rem
+
+span
+	&.strike
+		text-decoration: line-through
+	&.heart
+		color: transparentize($red, 0.5)
+		
+img
+	max-width: 100%
+	height: auto
+
+hr
+	width: 10%
+	border: none
+	border-top: 1px solid transparentize($gray, 0.8)
+	margin: 0 auto
+
+figure
+	margin: 0
+
+figcaption
+	color: transparentize($gray, 0.5)
+
+section
+	position: relative
+
+html
+	font-size: 62.5%
+	
+body
+	font-family: $font
+	+weight(400)
+	font-size: 1.6rem
+	line-height: 1.867
+	overflow-x: hidden
+
+main
+	max-width: 100%
+	padding: 1rem
+
+	header
+		display: flex
+		align-items: center
+		justify-content: space-between
+
+article
+	
+	h6
+		+weight(600)
+		font-size: 1.4rem
+		text-transform: uppercase
+		letter-spacing: 3px
+		color: $gray
+		line-height: 3.6
+
+	p
+		font-size: 1.6rem
+		line-height: 2.6
+
+.work
+	margin: 5em 0
+
+.work__title
+	background-color: $white
+	padding: 1em 0
+	
+	span
+		color: transparentize($gray, 0.5)
+
+.work__meta
+	width: 100%
+	
+	span
+		font-size: 1.6rem
+		color: transparentize($gray, 0.3)
+
+.work__meta--item
+	margin: 2em 0
+
+.work__intro
+	display: flex
+	flex-direction: column
+	margin: 7em 0
+
+.work__tags
+	font-size: 1.4rem
+	margin: 2em 0
+	text-align: right
+	opacity: 0.5
+	transition: opacity 0.15s ease-in-out
+	
+	span
+		padding: 0.5em 0.8em
+		margin-left: 0.5em
+		border-radius: 3px
+		cursor: default
+		background-color: transparentize($gray, 0.9)
+		color: transparentize($gray, 0.5) - 20%
+
+.work__full:hover
+	.work__tags
+		opacity: 1
+
+.work__full,
+.work__half,
+.work__third
+	position: relative
+	margin: 2em 0
+
+.work__half,
+.work__third
+	display: flex
+	flex-direction: column
+
+.work__half
+	.work--item
+		width: 100%
+		margin-top: 2em
+
+.work--item_icon
+	width: 42px
+	height: 42px
+	margin-bottom: 1em
+	
+	img
+		height: 100%
+
+.work__nav
+	display: flex
+	flex-direction: column
+
+.work__nav--next,
+.work__nav--prev
+	width: 100%
+	background-color: transparentize($gray, 0.95)
+	padding: 2em
+	box-sizing: border-box
+	text-align: center
+	transition: all 0.1s ease-in-out
+	
+	h6
+		line-height: 2
+	
+	span
+		font-size: 2.4rem
+	
+	&:hover
+		background-color: $red
+		
+		h6
+			color: transparentize($white, 0.2)
+		
+		span
+			color: $white
+
+.work__nav--next
+	display: flex
+	flex-direction: column
+
+.durger,
+.fries,
+.drink
+	background-repeat: no-repeat
+	background-position: center
+	width: 70px
+	height: 70px
+	animation-name: fadeIn
+	animation-timing-function: linear
+	animation-fill-mode: forwards
+	animation-duration: 0.5s
+	transform: scale(0)
+	opacity: 0
+
+.durger
+	background-image: url('../assets/durger.svg')
+	animation-delay: 0.5s
+	z-index: 10
+
+.fries
+	background-image: url('../assets/fries.svg')
+	animation-delay: 1.5s
+	margin-top: -8%
+	margin-right: -17%
+	z-index: 5
+
+.drink
+	background-image: url('../assets/drink.svg')
+	animation-delay: 1.5s
+	margin-left: -15%
+	margin-top: -8%
+	z-index: 5
+	
+.menu--title
+	display: flex
+	justify-content: center
+	font-size: 0
+	position: relative
+	margin-top: 15%
+	
+	&:before
+		content: ""
+		position: absolute
+		width: 100px
+		height: 100px
+		background-color: transparentize($gray, 0.9)
+		border-radius: 200px
+		opacity: 0
+		left: 25%
+		top: -20%
+		transform: scale(0)
+		animation: fadeIn 0.5s 1s ease-in forwards
+
+@keyframes fadeIn
+	50%
+		transform: scale(1)
+	100%
+		transform: scale(1)
+		opacity: 1
+
+nav.fullscreen-cause-why-not
+	position: absolute
+	background-color: $red
+	top: 0
+	left: 0
+	width: 100vw
+	height: 100vh
+	z-index: 60
+	flex-direction: column
+	justify-content: space-between
+	align-items: center
+	animation: nav .1s linear
+
+	li 
+		a
+			text-align: center
+			display: block
+			color: $white
+			font-size: 4rem
+			+weight(700)
+			position: relative
+			
+			&:before
+				content: ""
+				width: 200px
+				height: 4px
+				background-color: $red
+				position: absolute
+				top: 55%
+				transform: translateX(-100%) translateY(-55%)
+				transition: transform 0.15s ease-in-out
+		
+			&:hover
+				
+				&:before
+					transform: translateX(0) translateY(-55%)
+		
+	li
+		animation-name: link
+		animation-timing-function: ease-in-out
+		animation-duration: 0.15s
+		animation-fill-mode: forwards
+		transform: translateX(100%)
+		opacity: 0
+		
+		@for $i from 1 through 3
+			&:nth-child(#{$i})
+				animation-delay: (0.15s * $i)
+	
+	a.message
+		visibility: hidden
+		font-size: 2rem
+		color: $white
+		margin-bottom: 5%
+		border-bottom: 1px solid $white
+		opacity: 0
+		animation: fadeIn 0.5s 2s ease-in forwards
+		
+		&:hover
+			color: $gray  
+			border-bottom-color: $gray
+
+@keyframes link
+	0%
+		transform: translateX(100%)
+		opacity: 0
+	100%
+		transform: translateX(0)
+		opacity: 1
+
+@keyframes nav
+	from
+		transform: translateX(-100%)
+	to
+		transform: translateX(0)
+	
+a.menu
+	width: 34px
+	height: 30px
+	display: block
+	position: relative
+	overflow: hidden
+	transition: all 0.15s ease-in-out
+	z-index: 100
+	
+	span
+		display: block
+		width: 100%
+		height: 6px
+		position: absolute
+		transition: all 0.15s ease-in-out
+		
+		&:nth-child(1)
+			background: url('../assets/top-bun.svg')
+			top: 0
+			
+		&:nth-child(2)
+			background: url('../assets/mid.svg')
+			top: 50%
+			transform: translateY(-50%)
+
+		&:nth-child(3)
+			background: url('../assets/bot-bun.svg')
+			bottom: 0
+	
+	&:hover
+		opacity: 0.7
+
+a.menu--active
+	span
+		&:nth-child(1)
+			transform: rotate(-45deg) 
+			transform-origin: right
+			
+		&:nth-child(2)
+			transform: translateX(100%) translateY(-50%)
+		
+		&:nth-child(3)
+			transform: rotate(45deg)
+			transform-origin: right
+
+.logo
+	background-image: url('../assets/logo.svg')
+	background-repeat: no-repeat
+	background-color: transparent
+	width: 48px
+	height: 48px
+	display: block
+
+.intro
+	padding: 3em 2em
+	
+.intro a
+	border-bottom: 1px dotted transparentize($red, 0.7)
+	transition: all 0.15s ease-in-out
+	
+	&:hover
+		border-bottom-color: transparentize($red, 0.5)
+	
+.copy-logo
+	h1
+		color: $red
+		font-size: 3rem
+		text-align: center
+
+p.copy
+	font-family: $font
+	font-size: 2.4rem
+	+weight(400)
+	color: $gray
+	text-align: center
+
+.copy-footer
+	margin: 5em 0
+	z-index: 50
+	display: flex
+	flex-wrap: wrap
+	align-items: center
+	justify-content: center
+
+	span
+
+		font-size: 1.6rem
+		margin-top: 0.7em
+		color: transparentize($gray, 0.4)
+		letter-spacing: .5px
+		
+a.button
+	font-size: 1.2rem
+	+weight(700)
+	text-transform: uppercase
+	letter-spacing: 1.5px
+	background-color: $white
+	padding: 0.8em 1.5em
+	border: 2px solid #eee
+	z-index: 50
+	text-decoration: none
+	color: $gray 
+	position: relative
+	transition: all 0.15s ease-in-out
+	
+	&:hover
+		color: $red
+		border-bottom-color: #eee
+    
+a.button-cta
+	&:after
+		content: "→"
+		margin-left: 0.5em
+		transition: margin-left 0.15s ease-in-out
+	
+section.title
+	text-align: center
+	color: $gray
+	letter-spacing: 3px
+	margin: 2em 0
+	
+	h2	
+		&:before
+			color: transparentize($gray, 0.93)
+			font-size: 7rem
+			font-family: $font
+			+weight(700)
+			line-height: 0
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translateY(-50%) translateX(-50%)
+	
+	$letters: W A S
+	@each $letter in $letters
+		h2.title--#{$letter}
+			+weight(600)
+			position: relative
+			
+			&:before
+				content: "#{$letter}"
+
+.gallery
+	margin-top: 3em
+	display: flex
+	flex-wrap: wrap
+	justify-content: center
+
+.gallery-item
+	max-width: 370px
+	max-height: 400px
+	transition: all 0.15s ease-in-out
+	position: relative
+	
+	&:hover
+		transform: scale(1.05)
+
+.gallery-item--empty
+	border: 1px solid transparentize($gray, 0.8)
+	width: 369px
+	height: 400px
+	display: flex
+	align-items: center
+	justify-content: center
+	
+.flying-balls
+	display: none
+
+.vertical-text,
+.vertical-text-left
+	z-index: 20
+	display: none
+
+section.hook
+	margin: 5em 0
+	text-align: center
+
+section.top
+	display: flex
+	align-items: center
+	justify-content: center
+	
+	a.top
+		background-color: $red
+		color: $white
+
+section.about
+	p
+		font-size: 2rem
+		line-height: 2.2
+		padding: 0.5em 0
+
+.about--group
+	padding: 2em 0
+
+	ul
+		width: 100%
+
+		li
+			font-size: 2rem
+			color: transparentize($gray, 0.15)
+
+footer
+	margin-top: 2.5em
+	padding-top: 2.5em
+	border-top: 1px solid transparentize($gray, 0.9)
+	display: flex
+	flex-direction: column
+	
+	p
+		font-size: 1.8rem
+		text-align: center
+
+.fade-in
+	animation: fadeInBody 0.3s ease-in forwards
+	opacity: 0
+
+@keyframes fadeInBody
+	0%
+		opacity: 0
+	100%
+		opacity: 1
+
+@media screen and (min-width: 520px)
+	.content
+		margin-left: auto
+		margin-right: auto
+		width: 100%
+
+@media screen and (min-width: 768px)
+	hr
+		width: 3%
+		margin: 0
+	
+	figcaption
+		width: 60%
+		text-align: center
+		margin: 0 auto
+	body
+		background: $white url('../assets/bg.png') repeat
+	main
+		padding: 2em
+	
+	.work__intro
+		flex-direction: row
+		justify-content: space-between
+	
+	.work__desc
+		width: 60%
+	
+	.work__meta
+		width: 18%
+		
+	.work__full,
+	.work__half,
+	.work__third
+		flex-direction: row
+		margin: 5em 0
+	
+	.work__half
+		.work--item
+			width: 50%
+			margin-top: 0
+			
+			&:first-child
+				margin-right: 5em
+	
+	
+	.work__third
+		.work--item
+			width: 33.33%
+			
+	.wrapper
+		position: relative
+	
+	.gallery
+		display: flex
+		flex-direction: row
+		flex-wrap: wrap
+		
+	.gallery-item
+		margin-right: 4.5rem
+		margin-bottom: 4.5rem
+		max-width: 370px
+		max-height: 400px
+	
+	.logo
+		width: 84px
+		height: 84px
+		
+	section.intro
+		width: 70%
+		height: calc(100vh - 84px)
+		display: flex
+		flex-direction: column
+		justify-content: center
+		position: relative
+
+		&:before
+			content: "R"
+			position: absolute
+			bottom: 35%
+			left: 50%
+			transform: translateX(-50%) rotate(-90deg)
+			font-size: 100rem
+			line-height: 0
+			+weight(700)
+			color: rgba(25, 25, 25, 0.05)
+			z-index: -1
+	
+	.copy-logo
+		h1 
+			text-align: left
+			font-size: 3.2rem
+			line-height: 3.5
+			z-index: 50
+	
+	p.copy
+		font-size: 3rem
+		text-align: left
+		z-index: 50
+	
+	.copy-footer
+		justify-content: flex-start
+		
+		span
+			margin-top: 0
+			margin-left: 1.2em
+
+	.flying-balls
+		display: block
+		position: absolute
+		top: 50%
+		left: 0
+		right: 0
+		height: 30vh
+		transform: translateY(-50%)
+		overflow: hidden
+		z-index: -1
+		
+		span
+			display: block
+			width: 12px
+			height: 12px
+			border-radius: 20px
+			position: absolute
+			opacity: 0.5
+		
+		$ball_colors: $red $purple $blue-light $yellow $green
+		@each $color in $ball_colors
+			$i: index($ball_colors, $color)
+			.ball-#{$i}
+				background-color: $color
+				animation: ball#{$i} 10s ease-in-out alternate infinite
+				
+			@keyframes ball#{$i}
+				0%
+					transform: translateX(random(1000)+px) translateY(random(250)+px)
+				50%
+					transform: translateX(random(1000)+px) translateY(random(250)+px)
+				75%
+					transform: translateX(random(1000)+px) translateY(random(250)+px)
+				100%
+					transform: translateX(random(1000)+px) translateY(random(250)+px)
+	
+	.vertical-text,
+	.vertical-text-left
+		display: block
+		font-size: 1.2rem
+		color: $gray
+		text-transform: uppercase
+		letter-spacing: 10px
+		transform: translateY(-20%) rotate(90deg)
+		position: absolute
+		top: 20%
+		right: 0
+		
+		&:before
+			content: ""
+			display: block
+			height: 1px
+			width: 200px
+			background-color: transparentize($gray, 0.85)
+			position: absolute
+			left: -110%
+			top: 50%
+			transform: translateY(-50%)
+	
+	.vertical-text-left
+		top: auto
+		left: 0
+		right: auto
+
+	section.title
+		margin: 5em 0
+
+	section.hook
+		height: 80vh
+		display: flex
+		align-items: center
+		justify-content: center
+		position: relative
+
+		.hook-inner
+			text-align: center
+			position: relative
+			max-width: 50%
+		
+			&:before
+				content: ""
+				display: block
+				background-image: url('../assets/hook.svg')
+				width: 59px
+				height: 48px
+				position: absolute
+				left: 50%
+				bottom: -4em
+				transform: translateX(-50%)
+	
+	.work__nav
+		flex-direction: row
+		justify-content: flex-end
+	
+	.work__nav--next,
+	.work__nav--prev
+		text-align: left
+		align-items: flex-end
+	
+	nav.fullscreen-cause-why-not
+		a.message
+			visibility: visible
+		
+		.menu--title
+			margin-top: 5%
+	
+	section.about
+		p
+			font-size: 2.5rem
+			padding: 0.5em 0
+
+	.about--group
+		display: flex
+		width: 720px
+		padding: 2em 0
+		margin: 0 auto
+
+		ul
+			margin-left: auto
+			width: 420px
+
+			li
+				font-size: 2.5rem
+				color: transparentize($gray, 0.15)
+	
+	span.dick
+		color: transparent
+		background-color: $red
+		border-radius: 20px
+
+		&:hover
+			color: transparentize($gray, 0.15)
+			background-color: transparent
+
+@media screen and (min-width: 1440px)
+	main
+		width: 1200px
+		margin: 0 auto
+	
+	.gallery-item
+		&:nth-child(3n)
+			margin-right: 0

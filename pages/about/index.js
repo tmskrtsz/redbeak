@@ -42,7 +42,7 @@ export default class About extends React.Component{
                             <h6>Development</h6>
                             <ul>
                                 <li>HTML, Pug, HAML, Twig</li>
-                                <li>CSS, Stylus</li>
+                                <li>CSS, Stylus, SASS</li>
                                 <li>JavaScript (basic), jQuery (intermediate)</li>
                                 <li>ReactJS (basic)</li>
                                 <li>Python (basic)</li>

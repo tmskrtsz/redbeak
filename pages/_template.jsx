@@ -5,7 +5,7 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Hook from '../components/Hook'
 import Top from '../components/Top'
-import '../sass/style.sass'
+import '../styles/style.sass'
 
 
 module.exports = React.createClass({
