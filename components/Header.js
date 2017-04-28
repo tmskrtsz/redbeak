@@ -60,7 +60,7 @@ export default class Header extends React.Component{
             <span></span>
             <span></span>
           </a>
-          <nav className="fullscreen-cause-why-not" style={(this.state.active) ? {display: 'flex'} : {display: 'none'}}>
+          <nav onClick={this.clearMenu} className="fullscreen-cause-why-not" style={(this.state.active) ? {display: 'flex'} : {display: 'none'}}>
             <div className="menu--title" aria-label="Navigation Menu">
               <div className="fries">Fries with that order?</div>
               <div className="durger">Juicy cheese burger</div>
@@ -68,10 +68,10 @@ export default class Header extends React.Component{
             </div>
             <ul>
               <li>
-                <Link onClick={this.clearMenu} to={prefixLink('/')}>Home</Link>
+                <Link to={prefixLink('/')}>Home</Link>
               </li>
               <li>
-                <Link onClick={this.clearMenu} to={prefixLink('/about/')}>About</Link>
+                <Link to={prefixLink('/about/')}>About</Link>
               </li>
             </ul>
             <a className="message" href="mailto:tamas.kertesz@cult.tamk.fi?subject=Your navigation sucks" alt="Fite me">Fullscreen navigation menu for two links, seriously?</a>

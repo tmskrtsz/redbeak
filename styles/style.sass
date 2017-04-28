@@ -15,6 +15,9 @@ $font: 'proxima-nova-soft', sans-serif
 =weight($value)
 	font-weight: $value
 
+=linkReset()
+	border-bottom: none
+
 *, *:before, *:after
 	padding: 0
 	margin: 0
@@ -45,13 +48,15 @@ h5
 em
 	font-style: normal
 	color: $blue-light
+
 a
-	text-decoration: none
 	color: $red
+	text-decoration: none
+	border-bottom: 1px dotted transparentize($red, 0.7)
+	transition: all 0.15s ease-in-out
 	
 	&:hover
-		color: transparentize($red, 0.2)
-		border-bottom-color: $red
+		border-bottom-color: transparentize($red, 0.5)
 
 p
 	color: transparentize($gray, 0.15) 
@@ -396,23 +401,17 @@ a.menu--active
 			transform: rotate(45deg)
 			transform-origin: right
 
-.logo
+a.logo
 	background-image: url('../assets/logo.svg')
 	background-repeat: no-repeat
 	background-color: transparent
 	width: 48px
 	height: 48px
 	display: block
+	+linkReset()
 
 .intro
 	padding: 3em 2em
-	
-.intro a
-	border-bottom: 1px dotted transparentize($red, 0.7)
-	transition: all 0.15s ease-in-out
-	
-	&:hover
-		border-bottom-color: transparentize($red, 0.5)
 	
 .copy-logo
 	h1
@@ -637,7 +636,7 @@ footer
 		max-width: 370px
 		max-height: 400px
 	
-	.logo
+	a.logo
 		width: 84px
 		height: 84px
 		
