@@ -43,7 +43,7 @@ module.exports = React.createClass({
           {css}
           <script src="https://use.typekit.net/lvy7pso.js"></script>
           <script>{'try{Typekit.load({ async: true });}catch(e){}'}</script>
-          <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+          <link rel="shortcut icon" href={favicon} type="image/x-icon" />
           <link rel="apple-touch-icon" href={faviconApple} sizes="192x192" />
         </head>
         <body>

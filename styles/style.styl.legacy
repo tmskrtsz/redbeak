@@ -369,16 +369,16 @@ a.menu
 		transition all 0.15s ease-in-out
 		
 		&:nth-child(1)
-			background: embedurl('../assets/top-bun.svg', 'utf8')
+			background: url('../assets/top-bun.svg', 'utf8')
 			top 0
 			
 		&:nth-child(2)
-			background: embedurl('../assets/mid.svg', 'utf8')
+			background: url('../assets/mid.svg', 'utf8')
 			top 50%
 			transform translateY(-50%)
 
 		&:nth-child(3)
-			background: embedurl('../assets/bot-bun.svg', 'utf8')
+			background: url('../assets/bot-bun.svg', 'utf8')
 			bottom 0
 	
 	&:hover

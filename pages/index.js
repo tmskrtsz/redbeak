@@ -9,6 +9,16 @@ import GalleryItem from '../components/GalleryItem'
 
 export default class Index extends React.Component {
   render () {
+    let pages = [
+      'iocoin-1',
+      'iocoin-2',
+      'hiilinielu-design',
+      'campus-compass',
+      'dions',
+      'jobfairy'
+    ]
+    .reverse()
+
     return (
       <div>
         <Helmet
@@ -24,12 +34,11 @@ export default class Index extends React.Component {
           titleName="works"
         />
         <section className="gallery">
-          <GalleryItem slug="jobfairy" />
-          <GalleryItem slug="dions" />
-          <GalleryItem slug="campus-compass" />
-          <GalleryItem slug="hiilinielu-design" />
-          <GalleryItem slug="iocoin-2" />
-          <GalleryItem slug="iocoin-1" />
+          {
+            pages.map(function(slug, index){
+              return <GalleryItem slug={slug} />
+            })
+          }
         </section>
       </div>
     )
