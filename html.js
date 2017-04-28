@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 
 import { prefixLink } from 'gatsby-helpers'
 
-import favicon from './assets/icons/favicon.ico'
+//import favicon from './assets/icons/favicon.ico'
 import faviconApple from './assets/icons/apple-touch-icon-192x192.png'
 
 const BUILD_TIME = new Date().getTime()
@@ -43,7 +43,7 @@ module.exports = React.createClass({
           {css}
           <script src="https://use.typekit.net/lvy7pso.js"></script>
           <script>{'try{Typekit.load({ async: true });}catch(e){}'}</script>
-          <link rel="shortcut icon" href={favicon} type="image/x-icon" />
+          <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
           <link rel="apple-touch-icon" href={faviconApple} sizes="192x192" />
         </head>
         <body>

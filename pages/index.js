@@ -36,7 +36,7 @@ export default class Index extends React.Component {
         <section className="gallery">
           {
             pages.map(function(slug, index){
-              return <GalleryItem slug={slug} />
+              return <GalleryItem key={index} slug={slug} />
             })
           }
         </section>

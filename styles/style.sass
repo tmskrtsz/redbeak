@@ -18,6 +18,10 @@ $font: 'proxima-nova-soft', sans-serif
 =linkReset()
 	border-bottom: none
 
+	&:after
+		content: none
+	
+
 *, *:before, *:after
 	padding: 0
 	margin: 0
@@ -49,14 +53,25 @@ em
 	font-style: normal
 	color: $blue-light
 
-a
+a:not(.button)
 	color: $red
 	text-decoration: none
-	border-bottom: 1px dotted transparentize($red, 0.7)
 	transition: all 0.15s ease-in-out
+	position: relative
 	
+	&:after
+		content: ""
+		border-bottom: 0.4em solid transparentize($red, 0.85)
+		transform: scaleX(0)
+		position: absolute
+		bottom: 2px
+		left: 7px
+		width: 100%
+		transition: all 0.15s ease-in-out
+
 	&:hover
-		border-bottom-color: transparentize($red, 0.5)
+		&:after
+			transform: scaleX(1)
 
 p
 	color: transparentize($gray, 0.15) 
@@ -200,6 +215,7 @@ article
 	box-sizing: border-box
 	text-align: center
 	transition: all 0.1s ease-in-out
+	+linkReset()
 	
 	h6
 		line-height: 2
@@ -364,6 +380,7 @@ a.menu
 	overflow: hidden
 	transition: all 0.15s ease-in-out
 	z-index: 100
+	+linkReset()
 	
 	span
 		display: block
@@ -454,16 +471,23 @@ a.button
 	color: $gray 
 	position: relative
 	transition: all 0.15s ease-in-out
-	
+
 	&:hover
 		color: $red
 		border-bottom-color: #eee
     
 a.button-cta
+
 	&:after
 		content: "→"
-		margin-left: 0.5em
-		transition: margin-left 0.15s ease-in-out
+		position: relative
+		top: 1px
+		right: -5px
+		transition: right 0.15s ease-in-out
+	
+	&:hover
+		&:after
+			right: -8px
 	
 section.title
 	text-align: center
@@ -503,9 +527,13 @@ section.title
 	max-height: 400px
 	transition: all 0.15s ease-in-out
 	position: relative
+	+linkReset()
 	
 	&:hover
 		transform: scale(1.05)
+	
+	&:after
+		content: none !important
 
 .gallery-item--empty
 	border: 1px solid transparentize($gray, 0.8)
