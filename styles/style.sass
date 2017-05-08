@@ -249,6 +249,7 @@ article
 	animation-duration: 0.5s
 	transform: scale(0)
 	opacity: 0
+	will-change: transform
 
 .durger
 	background-image: url('../assets/durger.svg')
@@ -301,13 +302,11 @@ nav.fullscreen-cause-why-not
 	background-color: $red
 	top: 0
 	left: 0
+	z-index: 60
 	width: 100vw
 	height: 100vh
-	z-index: 60
-	flex-direction: column
-	justify-content: space-between
-	align-items: center
-	animation: nav .1s linear
+	transform: translate3d(-100vw,0,0)
+	transition: transform 150ms ease-in-out
 
 	li 
 		a
@@ -357,6 +356,17 @@ nav.fullscreen-cause-why-not
 		&:hover
 			color: $gray  
 			border-bottom-color: $gray
+	
+	&.nav--expanded
+		transform: translate3d(0,0,0)
+	
+	.nav--inner
+		width: 100vw
+		height: 100vh
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		align-items: center
 
 @keyframes link
 	0%
@@ -368,10 +378,10 @@ nav.fullscreen-cause-why-not
 
 @keyframes nav
 	from
-		transform: translateX(-100%)
+		transform: translate3d(-100vw,0,0)
 	to
-		transform: translateX(0)
-	
+		transform: translate3d(0,0,0)
+
 a.menu
 	width: 34px
 	height: 30px
@@ -775,7 +785,7 @@ footer
 		margin: 5em 0
 
 	section.hook
-		height: 80vh
+		height: 100vh
 		display: flex
 		align-items: center
 		justify-content: center
@@ -841,7 +851,7 @@ footer
 			color: transparentize($gray, 0.15)
 			background-color: transparent
 
-@media screen and (min-width: 1440px)
+@media screen and (min-width: 1430px)
 	main
 		width: 1200px
 		margin: 0 auto
