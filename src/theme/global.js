@@ -11,7 +11,8 @@ const GlobalStyle = createGlobalStyle`
 		font-family: ${ props => props.theme.text.fontFamily };
 		font-size: ${ props => props.theme.text.baseFontSize };
 		line-height: 1.6;
-		border-top: 2px solid ${ props => props.theme.color.primary };
+		padding-top: 10rem;
+		color: ${ props => props.theme.color.text };
 	}
 
 	a {
