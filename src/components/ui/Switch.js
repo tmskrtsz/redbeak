@@ -5,35 +5,42 @@ import { rgba } from 'polished'
 const SwitchContainer = styled.div`
 	display: flex;
 	align-items: center;
+	justify-content: flex-end;
 
 	label {
-		height: 32px;
+		height: 30px;
 	}
 
 	input[type='checkbox'] {
 		-webkit-appearance: none;
 		position: relative;
-		background-color: #eee;
+		background-color: ${ props => rgba(props.theme.color.text, 0.08) };
 		border-radius: 50px;
 		width: 70px;
 		height: 100%;
 		margin: 0 1.2em;
+		padding: 3px;
 		display: inline-block;
 		transition: all ease 0.2s;
 		outline: 0;
 		cursor: pointer;
+		box-shadow: 0 0 0 1px ${ props => rgba(props.theme.color.text, 0.2) };
+
+		:focus {
+			box-shadow: 0 0 0 3px ${ props => rgba(props.theme.color.primary, 0.8) };
+		}
 
 		&::before {
 			content: '';
-			width: 28px;
-			height: 28px;
-			background-color: grey;
+			width: 24px;
+			height: 24px;
+			background-color: ${ props => rgba(props.theme.color.text, 0.5) };
 			border-radius: 50px;
 			position: absolute;
 			left: 0;
-			margin-top: 2px;
-			margin-right: 2px;
-			margin-left: 2px;
+			top: 50%;
+			margin-left: 3px;
+			transform: translateY(-50%);
 			transition: all ease 0.2s;
 		}
 
@@ -42,7 +49,9 @@ const SwitchContainer = styled.div`
 
 			&::before {
 				background-color: ${ props => props.theme.color.primary };
-				left: 54%;
+				left: 100%;
+				margin-left: -3px;
+				transform: translate(-100%, -50%);
 				transition: all ease 0.2s;
 			}
 		}
@@ -54,7 +63,7 @@ const Label = styled.span`
 	font-size: 1.2rem;
 	font-weight: 700;
 	letter-spacing: 1px;
-	color: ${ props => (!props.active ? rgba(props.theme.color.text, 0.4) : '#000') };
+	color: ${ props => (!props.active ? rgba(props.theme.color.text, 0.4) : props => props.theme.color.primary) };
 	cursor: default;
 `
 
