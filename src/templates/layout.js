@@ -1,20 +1,23 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 
-import Store from '../store'
+import Store, { Consumer } from '../store'
 import Header from '../components/ui/Header'
 import GlobalStyle from '../theme/global'
-import theme from '../theme'
 
-const Layout = ({ children, location }) => (
+const Layout = ({ children }) => (
 	<Store>
-		<ThemeProvider theme={theme}>
-			<>
-				<GlobalStyle />
-				<Header />
-				{children}
-			</>
-		</ThemeProvider>
+		<Consumer>
+			{({ theme }) => (
+				<ThemeProvider theme={theme}>
+					<>
+						<GlobalStyle />
+						<Header />
+						{children}
+					</>
+				</ThemeProvider>
+			)}
+		</Consumer>
 	</Store>
 )
 
