@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
-import { timingFunctions, rgba, darken } from 'polished'
+import { timingFunctions, rgba, darken, adjustHue } from 'polished'
 
 import { Container, Row, Column, Inner } from '../components/ui/Grid'
 import SEO from '../components/seo'
@@ -23,7 +23,7 @@ const Title = styled.div`
 `
 
 const Card = styled.div`
-	background-color: ${ props => props.bg };
+	background-image: linear-gradient(-150deg, ${ props => props.bg }, ${ props => adjustHue(50, props.bg) });
 	border-radius: 4px;
 	overflow: hidden;
 	position: relative;
@@ -58,6 +58,8 @@ const IndexPage = ({ data }) => {
 						</Inner>
 					</Column>
 				</Row>
+			</Container>
+			<Container>
 				<Row grid={1 / 2}>
 					{data.allMarkdownRemark.edges.map(work => (
 						<Column key={work.node.id}>
@@ -72,7 +74,6 @@ const IndexPage = ({ data }) => {
 										</Cover>
 										<Title>
 											<h3>{work.node.frontmatter.title}</h3>
-											<small>{work.node.frontmatter.date}</small>
 										</Title>
 									</Card>
 								</Link>
