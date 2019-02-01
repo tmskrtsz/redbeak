@@ -1,12 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Transition } from 'react-spring'
 import { Consumer } from '../store'
 
-import Switch from './ui/Switch'
-
 const Greeter = styled.div`
-	max-width: 70%;
+	max-width: 60%;
 	padding: 5em 0;
 `
 
@@ -15,6 +12,7 @@ const Title = styled.h1`
 `
 
 const Subtitle = styled.h2`
+	color: ${ props => props.theme.color.text };
 	font-size: 2.6rem;
 	font-weight: 400;
 	line-height: 1.7;
@@ -24,7 +22,7 @@ export default () => (
 	<Greeter>
 		<Title>redbeak</Title>
 		<Consumer>
-			{({ actions, douche }) => {
+			{({ douche }) => {
 				return (
 					<>
 						{douche ? (
@@ -38,10 +36,6 @@ export default () => (
 								check out my work or read more about me.
 							</Subtitle>
 						)}
-						<Switch
-							onClick={actions.switchTone}
-							status={douche}
-						/>
 					</>
 				)
 			}}
