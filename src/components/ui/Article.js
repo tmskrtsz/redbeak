@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 const Article = styled.article`
+	${ props => props.anim };
+
 	h4 {
 		margin: 0;
 		padding-top: 0.5em;

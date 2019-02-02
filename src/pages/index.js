@@ -1,6 +1,7 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import { Link } from '../components/ui/TransitionLink'
 
 import { Container, Row, Column, Inner } from '../components/ui/Grid'
 import SEO from '../components/seo'
@@ -32,7 +33,10 @@ export default ({ data }) => {
 					{data.allMarkdownRemark.edges.map(work => (
 						<Column key={work.node.id}>
 							<Inner>
-								<Link to={work.node.fields.slug}>
+								<Link
+									to={work.node.fields.slug}
+									color={work.node.frontmatter.bg}
+								>
 									<Card bg={work.node.frontmatter.bg}>
 										<Cover>
 											<Img

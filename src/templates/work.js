@@ -6,6 +6,7 @@ import RehypeReact from 'rehype-react'
 import Seo from '../components/seo'
 import { Container, Row, Column, Inner } from '../components/ui/Grid'
 import Article from '../components/ui/Article'
+import { FadeIn } from '../components/ui/Animations'
 
 const renderAst = new RehypeReact({
 	createElement: React.createElement,
@@ -29,7 +30,10 @@ export default ({ data, pageContext }) => {
 				keywords={[work.frontmatter.tags]}
 			/>
 			<Container>
-				<Article>
+				<Article
+					anim={FadeIn}
+					animDelay="0.3s"
+				>
 					<h1>{work.frontmatter.title}</h1>
 					<small>
 						Read time: {work.timeToRead} {getNoun}
