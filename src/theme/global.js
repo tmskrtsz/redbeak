@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
 		line-height: 1.6;
 		padding-top: 10rem;
 		color: ${ props => props.theme.color.text };
+		transition: all 0.15s ease-in;
 	}
 
 	a {

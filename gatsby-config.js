@@ -38,6 +38,12 @@ module.exports = {
 				]
 			}
 		},
+		{
+			resolve: 'gatsby-plugin-transition-link',
+			options: {
+				layout: require.resolve(`./src/templates/layout.js`)
+			}
+		},
 		`gatsby-plugin-sharp`,
 		`gatsby-plugin-styled-components`,
 		{
@@ -58,12 +64,6 @@ module.exports = {
 				typekit: {
 					id: 'pfi2kcb'
 				}
-			}
-		},
-		{
-			resolve: `gatsby-plugin-layout`,
-			options: {
-				component: require.resolve(`./src/templates/layout.js`)
 			}
 		}
 	]

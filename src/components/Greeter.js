@@ -1,10 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import styled from 'styled-components'
 import { Consumer } from '../store'
+import { FlyUp } from './ui/Animations'
 
 const Greeter = styled.div`
 	max-width: 60%;
 	padding: 5em 0;
+	${ props => props.anim };
 `
 
 const Title = styled.h1`
@@ -19,7 +23,7 @@ const Subtitle = styled.h2`
 `
 
 export default () => (
-	<Greeter>
+	<Greeter anim={FlyUp}>
 		<Title>redbeak</Title>
 		<Consumer>
 			{({ douche }) => {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { rgba } from 'polished'
 
@@ -7,6 +6,8 @@ import { Consumer } from '../../store'
 import Switch from './Switch'
 import theme from '../../theme/light'
 import { Container, Row, Column } from './Grid'
+import { FlyDown } from './Animations'
+import { Link } from './TransitionLink'
 import logo from '../../images/logo.svg'
 
 import _throttle from 'lodash.throttle'
@@ -22,6 +23,7 @@ const Header = styled.header`
 	z-index: 1000;
 	box-shadow: 0 4px 30px ${ props => (props.active ? rgba(props.theme.color.dark, 0.12) : 'transparent') };
 	transition: all 0.2s ease-in-out;
+	${ props => props.anim }
 
 	${ Row } {
 		margin-left: 0;
@@ -81,7 +83,11 @@ export default class extends Component {
 	render () {
 		const { scrolling } = this.state
 		return (
-			<Header active={scrolling}>
+			<Header
+				active={scrolling}
+				anim={FlyDown}
+				animDelay="0.5s"
+			>
 				<Container>
 					<Row
 						align="center"

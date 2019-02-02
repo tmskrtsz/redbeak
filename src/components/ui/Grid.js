@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 const Container = styled.div`
 	max-width: ${ props => props.theme.breakpoints.lg };
 	margin: 0 auto;
+	${ props => props.anim };
 `
 
 const Column = styled.div`
