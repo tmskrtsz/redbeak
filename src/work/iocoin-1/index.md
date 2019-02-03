@@ -1,9 +1,12 @@
 ---
 title: I/O Coin Wallet MK1
 date: 2014-08-27
+client: I/O Digital Foundation
 tags: HTML, CSS, JavaScript, Node-Webkit
+roles: UI and UX design, Wireframing, Prototyping, Development
 bg: "#D6C5FF"
 banner: card.png
+intro: Accumsan nam arcu accumsan fringilla sagittis elit curabitur aliquet parturient hendrerit nullam aliquam.
 ---
 
 ## Description
@@ -16,11 +19,19 @@ I/O Coin is a digital currency much like Bitcoin. It is not Bitcoin, however, th
 
 I/O Coin is an alt-coin and thereby inherited Bitcoin's Qt Wallet GUI. This project was about setting I/O Coin apart from hundreds of other alt-coins and one of the first steps was to bring personality and brand to the fore. We made use of the latest JavaScript technologies and re-imagined the wallet from the ground up.
 
-## Lift Off
-
-The end result of the new wallet has to mirror the functionality that is found in the regular Qt version. This includes sending and receiving coins, address book, transaction history, settings and an I/O Coin specific feature that integrates a semi-decentralised name server. The latter of which should allow for registering or binding a string to a 34 character I/O Coin addresses.
-
-![I/O Coin Wallet Collage](2.jpg)
+<row>
+<column>
+  <inner>
+  <h2>Lift Off</h2>
+  <p>The end result of the new wallet has to mirror the functionality that is found in the regular Qt version. This includes sending and receiving coins, address book, transaction history, settings and an I/O Coin specific feature that integrates a semi-decentralised name server. The latter of which should allow for registering or binding a string to a 34 character I/O Coin addresses.</p>
+  </inner>
+</column>
+<column>
+  <inner>
+    <img src="2.jpg" alt="Bitcoin wallet" />
+  </inner>
+</column>
+</row>
 
 ## Approach
 
