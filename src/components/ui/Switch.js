@@ -24,7 +24,6 @@ const SwitchContainer = styled.div`
 		transition: all ease 0.2s;
 		outline: 0;
 		cursor: pointer;
-		box-shadow: 0 0 0 1px ${ props => rgba(props.theme.color.text, 0.2) };
 
 		:focus {
 			box-shadow: 0 0 0 3px ${ props => rgba(props.theme.color.primary, 0.8) };
@@ -32,14 +31,14 @@ const SwitchContainer = styled.div`
 
 		&::before {
 			content: '';
-			width: 24px;
-			height: 24px;
+			width: 20px;
+			height: 20px;
 			background-color: ${ props => rgba(props.theme.color.text, 0.5) };
 			border-radius: 50px;
 			position: absolute;
 			left: 0;
 			top: 50%;
-			margin-left: 3px;
+			margin-left: 5px;
 			transform: translateY(-50%);
 			transition: all ease 0.2s;
 		}
@@ -50,7 +49,7 @@ const SwitchContainer = styled.div`
 			&::before {
 				background-color: ${ props => props.theme.color.primary };
 				left: 100%;
-				margin-left: -3px;
+				margin-left: -5px;
 				transform: translate(-100%, -50%);
 				transition: all ease 0.2s;
 			}

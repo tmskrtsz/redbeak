@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { timingFunctions, rgba, darken, adjustHue } from 'polished'
+import { timingFunctions, rgba, darken } from 'polished'
 
 const Cover = styled.div`
 	width: 338px;
@@ -16,7 +16,7 @@ const Title = styled.h2`
 `
 
 const Card = styled.div`
-	background-image: linear-gradient(-150deg, ${ props => props.bg }, ${ props => adjustHue(50, props.bg) });
+	background-color: ${ props => props.bg };
 	border-radius: 4px;
 	overflow: hidden;
 	position: relative;
