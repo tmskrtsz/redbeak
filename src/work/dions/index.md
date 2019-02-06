@@ -1,12 +1,14 @@
 ---
 title: DIONs Infographic
 date: 2016-11-12
+period: "November - December 2016"
 client: I/O Digital Foundation
 tags: Illustrator
 roles: Illustration, Information Architecture, Branding
 bg: "#22C4FF"
 banner: card.png
-intro: Accumsan nam arcu accumsan fringilla sagittis elit curabitur aliquet parturient hendrerit nullam aliquam.
+intro: "Infographic design for the announcement of DIONs"
+link: "https://www.dropbox.com/s/omm48nw1738ph5u/dions.jpg?dl=0"
 ---
 
 ## Description

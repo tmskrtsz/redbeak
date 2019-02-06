@@ -1,12 +1,14 @@
 ---
 title: I/O Coin Wallet MK2
 date: 2015-06-15
+period: "2015 - 2016"
 client: I/O Digital Foundation
 tags: HTML, Stylus, JavaScript, Mithril.js, Electron, Gulp
 roles: UI and UX design, Wireframing, Prototyping, Development
 bg: "#7dd5ff"
 banner: card.png
-intro: Accumsan nam arcu accumsan fringilla sagittis elit curabitur aliquet parturient hendrerit nullam aliquam.
+intro: "Version 2 of the well received I/O Coin wallet"
+link: "https://www.iocoin.io/"
 ---
 
 ## Description
