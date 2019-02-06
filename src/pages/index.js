@@ -8,7 +8,7 @@ import SEO from '../components/seo'
 import { Container, Row, Column, Inner } from '../components/ui/Grid'
 import { SectionHeading } from '../components/ui/Heading'
 import Greeter from '../components/Greeter'
-import { Card, Title, Cover } from '../components/ui/Cards'
+import { Card, Title, Subtitle, Cover, Meta } from '../components/ui/Cards'
 import { FlyUp } from '../components/ui/Animations'
 import Contact from '../components/Contact'
 import { Element } from 'react-scroll'
@@ -59,7 +59,10 @@ export default ({ data }) => {
                           fadeIn={true}
                         />
                       </Cover>
-                      <Title>{work.node.frontmatter.title}</Title>
+                      <Meta>
+                        <Title>{work.node.frontmatter.title}</Title>
+                        <Subtitle>{work.node.frontmatter.intro}</Subtitle>
+                      </Meta>
                     </Card>
                   </Link>
                 </Inner>
@@ -91,6 +94,7 @@ export const allPages = graphql`
                 }
               }
             }
+            intro
             bg
           }
           fields {

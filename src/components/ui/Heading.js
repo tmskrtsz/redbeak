@@ -10,7 +10,7 @@ const Title = styled.h1`
 
 const Subtitle = styled.h2`
   color: ${ props => (props.tinted ? rgba(props.theme.color.text, 0.7) : props.theme.color.text) };
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   font-weight: 400;
   line-height: 1.7;
 `
