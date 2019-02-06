@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import styled from 'styled-components'
 import { rgba } from 'polished'
 
@@ -8,10 +8,10 @@ import Navbar from './Navbar'
 import { Link } from './TransitionLink'
 import { Container, Row, Column } from './Grid'
 import { FlyDown } from './Animations'
+import _throttle from 'lodash.throttle'
+import { animateScroll as scroll } from 'react-scroll'
 
 import logo from '../../images/logo.svg'
-
-import _throttle from 'lodash.throttle'
 
 const Header = styled.header`
   background-color: ${ props => (props.active ? rgba(props.theme.color.bg, 0.97) : 'transparent') };
@@ -43,9 +43,23 @@ const Home = styled(Link)`
   outline: 0;
 `
 
-export default class extends Component {
+const ScrollUp = styled.button`
+  background-color: ${ props => rgba(props.theme.color.primary, 0.1) };
+  border: 0;
+  border-radius: 30px;
+  color: ${ props => props.theme.color.primary };
+  font-size: 1.4rem;
+  margin-left: 1.2em;
+  margin-top: 0.6rem;
+  padding: 0.4em 1em;
+  padding-bottom: 0.5em;
+  cursor: pointer;
+`
+
+export default class extends PureComponent {
   state = {
-    scrolling: false
+    scrolling: false,
+    showScrollUp: false
   }
 
   isScrolling = () => {
@@ -54,6 +68,13 @@ export default class extends Component {
     } else {
       this.setState({ scrolling: false })
     }
+  }
+
+  isHovering = () => this.setState({ showScrollUp: true })
+
+  scrollTop = () => {
+    scroll.scrollToTop()
+    this.setState({ showScrollUp: false })
   }
 
   componentDidMount () {
@@ -65,7 +86,7 @@ export default class extends Component {
   }
 
   render () {
-    const { scrolling } = this.state
+    const { scrolling, showScrollUp } = this.state
     const { location } = this.props
     return (
       <Header
@@ -78,8 +99,18 @@ export default class extends Component {
             align="center"
             grid={1 / 3}
           >
-            <Column>
-              <Home to="/">Home</Home>
+            <Column
+              dir="row"
+              align="center"
+            >
+              <Home
+                onMouseOver={this.isHovering}
+                onMouseLeave={this.isHovering}
+                to="/"
+              >
+                Home
+              </Home>
+              {showScrollUp && <ScrollUp onClick={this.scrollTop}>Scroll Up</ScrollUp>}
             </Column>
             <Column>
               <Navbar location={location} />

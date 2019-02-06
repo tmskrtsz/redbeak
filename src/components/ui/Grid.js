@@ -9,10 +9,10 @@ const Container = styled.div`
 `
 
 const Column = styled.div`
-  flex-direction: ${ props => props.direction };
+  display: flex;
+  flex-direction: ${ props => props.dir || 'column' };
   align-items: ${ props => props.align };
   justify-content: ${ props => props.justify };
-  flex-direction: column;
   padding: ${ props => props.padding };
   flex: 1;
 `
@@ -52,7 +52,7 @@ Row.propTypes = {
 }
 
 Column.propTypes = {
-  direction: PropTypes.oneOf(['column', 'row']),
+  dir: PropTypes.oneOf(['column', 'row']),
   align: PropTypes.oneOf(['center', 'flex-end', 'flex-start']),
   justify: PropTypes.oneOf(['center', 'flex-end', 'flex-start'])
 }
