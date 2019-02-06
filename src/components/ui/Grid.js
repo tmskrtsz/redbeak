@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import theme from '../../theme/constant'
 
 const Container = styled.div`
-  max-width: ${ props => props.theme.breakpoints.lg };
+  max-width: ${ props => props.theme.breakpoints[props.size] || props.theme.breakpoints.lg };
   margin: 0 auto;
   ${ props => props.anim };
 `
@@ -40,6 +41,9 @@ const Wrapper = styled.div`
 const Inner = styled.div`
   margin: ${ props => props.theme.space.gutter }em;
 `
+Container.propTypes = {
+  size: PropTypes.oneOf(Object.keys(theme.breakpoints))
+}
 
 Row.propTypes = {
   align: PropTypes.oneOf(['center', 'flex-end', 'flex-start']),

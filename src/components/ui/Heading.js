@@ -9,8 +9,8 @@ const Title = styled.h1`
 `
 
 const Subtitle = styled.h2`
-  color: ${ props => (props.tinted ? rgba(props.theme.color.text, 0.5) : props.theme.color.text) };
-  font-size: 2.6rem;
+  color: ${ props => (props.tinted ? rgba(props.theme.color.text, 0.7) : props.theme.color.text) };
+  font-size: 2.2rem;
   font-weight: 400;
   line-height: 1.7;
 `
@@ -47,9 +47,9 @@ const firstLetter = str => {
   }
 }
 
-const SectionHeading = ({ children }) => {
+const SectionHeading = ({ children, ...other }) => {
   return (
-    <Section>
+    <Section {...other}>
       <Column>
         <Heading firstChar={firstLetter(children)}>{children}</Heading>
       </Column>
