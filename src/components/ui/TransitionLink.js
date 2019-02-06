@@ -1,5 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+
 import { rgba, timingFunctions } from 'polished'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import theme from '../../theme/light'
@@ -9,6 +11,7 @@ const LinkStyle = styled(AniLink)`
     props.anchor &&
     css`
       position: relative;
+      cursor: pointer;
 
       &::before {
         content: '';
@@ -43,5 +46,12 @@ const Link = ({ children, color, ...other }) => (
     {children}
   </LinkStyle>
 )
+
+LinkStyle.propTypes = {
+  anchor: PropTypes.bool
+}
+Link.propTypes = {
+  anchor: PropTypes.bool
+}
 
 export { Link }

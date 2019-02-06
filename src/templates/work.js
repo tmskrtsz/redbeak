@@ -50,6 +50,7 @@ const Meta = styled(Column)`
 
   p {
     margin: 0;
+    font-size: 1.7rem;
     color: ${ props => rgba(props.theme.color.text, 0.5) };
   }
 `

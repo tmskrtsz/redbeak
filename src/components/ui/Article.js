@@ -6,13 +6,15 @@ const Article = styled.article`
   ${ props => props.anim };
 
   p {
-    font-size: 2.2rem;
-    color: ${ props => rgba(props.theme.color.text, 0.7) };
+    font-size: 1.7rem;
+    color: ${ props => rgba(props.theme.color.text, 0.9) };
+    line-height: 1.8;
   }
 
   h4 {
     margin: 0;
     padding-top: 0.5em;
+    letter-spacing: 1.5px;
   }
 
   .icon {

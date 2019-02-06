@@ -14,6 +14,7 @@ const Button = styled.button`
   position: relative;
   background-color: ${ props => props.theme.color.bg };
   transition: all 0.25s ${ timingFunctions('easeOutQuad') };
+  cursor: pointer;
 
   &::before {
     content: '';
