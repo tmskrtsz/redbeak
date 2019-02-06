@@ -66,11 +66,18 @@ export default class extends PureComponent {
     if (window.pageYOffset > 0) {
       this.setState({ scrolling: true })
     } else {
-      this.setState({ scrolling: false })
+      this.setState({
+        scrolling: false,
+        showScrollUp: false
+      })
     }
   }
 
-  isHovering = () => this.setState({ showScrollUp: true })
+  isHovering = () => {
+    if (window.pageYOffset > 0) {
+      this.setState({ showScrollUp: true })
+    }
+  }
 
   scrollTop = () => {
     scroll.scrollToTop()
