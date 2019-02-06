@@ -3,12 +3,15 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { Link } from '../components/ui/TransitionLink'
 
+import { Consumer } from '../store'
 import SEO from '../components/seo'
 import { Container, Row, Column, Inner } from '../components/ui/Grid'
 import { SectionHeading } from '../components/ui/Heading'
 import Greeter from '../components/Greeter'
 import { Card, Title, Cover } from '../components/ui/Cards'
 import { FlyUp } from '../components/ui/Animations'
+import Contact from '../components/Contact'
+import { Element } from 'react-scroll'
 
 export default ({ data }) => {
   return (
@@ -30,30 +33,43 @@ export default ({ data }) => {
         animTime="0.7s"
         anim={FlyUp}
       >
-        <SectionHeading>Work</SectionHeading>
-        <Row grid={1 / 2}>
-          {data.allMarkdownRemark.edges.map(work => (
-            <Column key={work.node.id}>
-              <Inner>
-                <Link
-                  to={work.node.fields.slug}
-                  color={work.node.frontmatter.bg}
-                >
-                  <Card bg={work.node.frontmatter.bg}>
-                    <Cover>
-                      <Img
-                        fluid={work.node.frontmatter.banner.childImageSharp.fluid}
-                        fadeIn={true}
-                      />
-                    </Cover>
-                    <Title>{work.node.frontmatter.title}</Title>
-                  </Card>
-                </Link>
-              </Inner>
-            </Column>
-          ))}
-        </Row>
+        <Element
+          name="work"
+          id="work"
+        >
+          <Consumer>
+            {({ douche }) => (
+              <React.Fragment>
+                {douche ? <SectionHeading>Arté</SectionHeading> : <SectionHeading>Work</SectionHeading>}
+              </React.Fragment>
+            )}
+          </Consumer>
+          <Row grid={1 / 2}>
+            {data.allMarkdownRemark.edges.map(work => (
+              <Column key={work.node.id}>
+                <Inner>
+                  <Link
+                    to={work.node.fields.slug}
+                    color={work.node.frontmatter.bg}
+                  >
+                    <Card bg={work.node.frontmatter.bg}>
+                      <Cover>
+                        <Img
+                          fluid={work.node.frontmatter.banner.childImageSharp.fluid}
+                          fadeIn={true}
+                        />
+                      </Cover>
+                      <Title>{work.node.frontmatter.title}</Title>
+                    </Card>
+                  </Link>
+                </Inner>
+              </Column>
+            ))}
+          </Row>
+        </Element>
       </Container>
+
+      <Contact />
     </>
   )
 }

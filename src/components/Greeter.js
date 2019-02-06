@@ -8,6 +8,7 @@ import { Link } from './ui/TransitionLink'
 import { Title, Subtitle } from './ui/Heading'
 import { Button } from './ui/Buttons'
 import { FlyUp } from './ui/Animations'
+import { Link as ScrollLink } from 'react-scroll'
 
 const Greeter = styled.div`
   max-width: 60%;
@@ -21,7 +22,7 @@ const Greeter = styled.div`
   small {
     color: ${ props => rgba(props.theme.color.text, 0.7) };
     font-size: 1.5rem;
-    margin-left: 2em;
+    margin-left: 1.5em;
   }
 `
 
@@ -56,25 +57,36 @@ export default () => (
                 .
               </Subtitle>
             )}
+            <Button
+              as={ScrollLink}
+              to="contact"
+              href="#contact"
+              smooth={true}
+              duration={700}
+              spy={true}
+              hashSpy={true}
+            >
+              {!douche ? 'Drop Me a Line' : 'Submit Your Inquiry'}
+            </Button>
+            <small>
+              or {!douche ? 'take a look at ' : 'marvel '}
+              <ScrollLink
+                to="work"
+                anchor={true}
+                smooth={true}
+                spy={true}
+                duration={700}
+                href="#work"
+                offset={50}
+                hashSpy={true}
+              >
+                {!douche ? 'my stuff' : 'his art'}
+              </ScrollLink>
+              .
+            </small>
           </>
         )
       }}
     </Consumer>
-    <Button
-      as="a"
-      href="#"
-    >
-      Drop me a Line
-    </Button>
-    <small>
-      or take a look at{' '}
-      <Link
-        anchor={true}
-        to="#work"
-      >
-        my stuff
-      </Link>
-      .
-    </small>
   </Greeter>
 )
