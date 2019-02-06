@@ -1,9 +1,12 @@
 ---
-title: Campus Compass
-tags: Illustrator
+title: DIONs Infographic
 date: 2016-11-12
+client: I/O Digital Foundation
+tags: Illustrator
+roles: Illustration, Information Architecture, Branding
 bg: "#22C4FF"
 banner: card.png
+intro: Accumsan nam arcu accumsan fringilla sagittis elit curabitur aliquet parturient hendrerit nullam aliquam.
 ---
 
 ## Description
