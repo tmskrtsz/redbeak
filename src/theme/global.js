@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import 'normalize.css'
+import bgLight from '../images/bg_light.png'
 
 const GlobalStyle = createGlobalStyle`
 	html {
@@ -8,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
 
 	body {
 		background-color: ${ props => props.theme.color.bg };
+    background-image: ${ props => (!props.douche ? `url(${ bgLight })` : null) };
 		font-family: ${ props => props.theme.text.fontFamily };
 		font-size: ${ props => props.theme.text.baseFontSize };
 		line-height: 1.6;

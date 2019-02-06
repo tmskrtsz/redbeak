@@ -5,7 +5,7 @@ export default {
     bg: '#fff',
     primary: '#F73839',
     dark: '#232323',
-    text: '#000',
+    text: '#0f0d09',
     bannerBg: '#f9f9f9'
   },
   button: {
