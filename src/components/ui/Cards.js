@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { timingFunctions, rgba, darken } from 'polished'
+import { timingFunctions, rgba, darken, shade } from 'polished'
 
 const Cover = styled.div`
   width: 338px;
@@ -10,9 +10,16 @@ const Cover = styled.div`
   transition: transform 0.25s ${ timingFunctions('easeInOutQuad') };
 `
 
+const Meta = styled.div`
+  max-width: 80%;
+`
+
 const Title = styled.h2`
-  color: ${ props => props.theme.color.dark };
   margin: 0;
+`
+
+const Subtitle = styled.p`
+  padding: 0;
 `
 
 const Card = styled.div`
@@ -35,6 +42,11 @@ const Card = styled.div`
       transform: translate(-50%, 0%);
     }
   }
+
+  ${ Title },
+  ${ Subtitle } {
+    color: ${ props => shade(0.7, props.bg) };
+  }
 `
 
-export { Card, Title, Cover }
+export { Card, Title, Cover, Subtitle, Meta }

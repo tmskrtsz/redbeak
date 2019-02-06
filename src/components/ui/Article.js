@@ -1,14 +1,16 @@
 import styled from 'styled-components'
-import { rgba } from 'polished'
+import { rgba, shade, lighten } from 'polished'
+import { Link } from './TransitionLink'
 
 const Article = styled.article`
   margin-top: 5em;
   ${ props => props.anim };
 
   p {
-    font-size: 1.7rem;
+    font-size: 2rem;
     color: ${ props => rgba(props.theme.color.text, 0.9) };
     line-height: 1.8;
+    padding-bottom: 1.2em;
   }
 
   h4 {
@@ -26,10 +28,34 @@ const Article = styled.article`
     }
   }
 
-  /* span.gatsby-resp-image-wrapper {
-    margin-top: 5em;
-    margin-bottom: 5em;
-  } */
+  hr {
+    border: 0;
+    width: 10%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: ${ props => rgba(props.theme.color.text, 0.12) };
+    margin-top: 2em;
+    margin-bottom: 4em;
+    margin-left: 0;
+  }
 `
 
-export default Article
+const Pagination = styled(Link)`
+  width: 100%;
+  margin: 4em 0;
+  color: ${ props => props.theme.color.text };
+  font-size: 2rem;
+  transition: all 0.25s ease;
+
+  :hover {
+    opacity: 0.7;
+  }
+
+  h4 {
+    color: ${ props => props.theme.color.primary };
+    margin: 0;
+    padding: 0;
+  }
+`
+
+export { Article as default, Pagination }
