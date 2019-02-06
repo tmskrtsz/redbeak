@@ -1,12 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import { rgba } from 'polished'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import RehypeReact from 'rehype-react'
 
 import Seo from '../components/seo'
 import { Container, Row, Column, Inner, Wrapper } from '../components/ui/Grid'
-import Article from '../components/ui/Article'
+import Article, { Pagination } from '../components/ui/Article'
+import { Link } from '../components/ui/TransitionLink'
+import { Button } from '../components/ui/Buttons'
 import { Subtitle } from '../components/ui/Heading'
 import { FadeIn } from '../components/ui/Animations'
 
@@ -30,6 +32,10 @@ const Intro = styled(Column)`
     letter-spacing: 1px;
     color: ${ props => props.theme.color.primary };
     border-radius: 20px;
+  }
+
+  time {
+    color: ${ props => rgba(props.theme.color.text, 0.5) };
   }
 `
 
@@ -73,7 +79,7 @@ export default ({ data, pageContext }) => {
     <>
       <Seo
         title={work.frontmatter.title}
-        description={work.excerpt}
+        description={work.frontmatter.intro}
         keywords={[work.frontmatter.tags]}
       />
       <Wrapper
@@ -88,7 +94,18 @@ export default ({ data, pageContext }) => {
                   Read Time: {work.timeToRead} {getNoun}
                 </small>
                 <h1>{work.frontmatter.title}</h1>
+                <time>{work.frontmatter.period}</time>
                 <Subtitle tinted={true}>{work.frontmatter.intro}</Subtitle>
+                {work.frontmatter.link && (
+                  <Button
+                    as="a"
+                    href={work.frontmatter.link}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    View It Live
+                  </Button>
+                )}
               </Inner>
             </Intro>
             <Meta>
@@ -109,23 +126,40 @@ export default ({ data, pageContext }) => {
           anim={FadeIn}
           animDelay="0.5s"
         >
-          <div>{renderAst(work.htmlAst)}</div>
-          {previous && (
-            <Link
-              to={previous.fields.slug}
-              rel="prev"
-            >
-              ← {previous.frontmatter.title}
-            </Link>
-          )}
-          {next && (
-            <Link
-              to={next.fields.slug}
-              rel="next"
-            >
-              {next.frontmatter.title} →
-            </Link>
-          )}
+          {renderAst(work.htmlAst)}
+          <Container>
+            <Row>
+              {previous && (
+                <Column>
+                  <Pagination
+                    to={previous.fields.slug}
+                    rel="prev"
+                    color={previous.frontmatter.bg}
+                  >
+                    <Inner>
+                      <h4>Previous Case</h4>
+                      {previous.frontmatter.title}
+                    </Inner>
+                  </Pagination>
+                </Column>
+              )}
+              {next && (
+                <Column align="flex-end">
+                  <Pagination
+                    to={next.fields.slug}
+                    color={next.frontmatter.bg}
+                    rel="next"
+                    style={{ textAlign: 'right' }}
+                  >
+                    <Inner>
+                      <h4>Next Case</h4>
+                      {next.frontmatter.title}
+                    </Inner>
+                  </Pagination>
+                </Column>
+              )}
+            </Row>
+          </Container>
         </Article>
       </Container>
     </>
@@ -139,10 +173,12 @@ export const query = graphql`
       timeToRead
       frontmatter {
         title
+        period
         client
         roles
         tags
         intro
+        link
         banner {
           childImageSharp {
             fluid(maxWidth: 760, quality: 90) {
