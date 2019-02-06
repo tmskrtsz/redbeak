@@ -5,20 +5,20 @@ import Store, { Consumer } from '../store'
 import Header from '../components/ui/Header'
 import GlobalStyle from '../theme/global'
 
-const Layout = ({ children }) => (
-	<Store>
-		<Consumer>
-			{({ theme }) => (
-				<ThemeProvider theme={theme}>
-					<>
-						<GlobalStyle />
-						<Header />
-						{children}
-					</>
-				</ThemeProvider>
-			)}
-		</Consumer>
-	</Store>
+const Layout = ({ children, location }) => (
+  <Store>
+    <Consumer>
+      {({ theme, douche }) => (
+        <ThemeProvider theme={theme}>
+          <>
+            <GlobalStyle douche={douche} />
+            <Header location={location} />
+            {children}
+          </>
+        </ThemeProvider>
+      )}
+    </Consumer>
+  </Store>
 )
 
 export default Layout
