@@ -30,7 +30,7 @@ const Card = styled.div`
   padding: 2em;
   display: flex;
   flex-direction: column;
-  min-height: 40rem;
+  min-height: 54rem;
   transition: all 0.25s ${ timingFunctions('easeInOutQuad') };
   outline: 0;
 
