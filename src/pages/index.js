@@ -10,7 +10,7 @@ import { SectionHeading } from '../components/ui/Heading'
 import Greeter from '../components/Greeter'
 import { Card, Title, Subtitle, Cover, Meta } from '../components/ui/Cards'
 import { FlyUp } from '../components/ui/Animations'
-import Contact from '../components/Contact'
+import Contact from '../components/ContactAlt'
 import { Element } from 'react-scroll'
 import Footer from '../components/Footer'
 
