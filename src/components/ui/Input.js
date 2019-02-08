@@ -12,6 +12,7 @@ const InputStyles = css`
   color: ${ props => props.theme.input.color };
   padding: 0.6em 0.8em;
   width: 100%;
+  outline: 0;
   box-sizing: border-box;
   transition: box-shadow, border-color 0.25s ease;
 
