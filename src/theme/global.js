@@ -3,6 +3,10 @@ import 'normalize.css'
 import bgLight from '../images/bg_light.png'
 
 const GlobalStyle = createGlobalStyle`
+  *, *::after, *::before {
+    box-sizing: border-box;
+  }
+
 	html {
 		font-size: 62.5%;
 	}
