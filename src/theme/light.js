@@ -13,5 +13,10 @@ export default {
     border: '#e2e2e2',
     color: '#000'
   },
+  input: {
+    bg: '#fff',
+    border: '#e2e2e2',
+    color: '#000'
+  },
   ...constant
 }
