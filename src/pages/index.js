@@ -12,6 +12,7 @@ import { Card, Title, Subtitle, Cover, Meta } from '../components/ui/Cards'
 import { FlyUp } from '../components/ui/Animations'
 import Contact from '../components/Contact'
 import { Element } from 'react-scroll'
+import Footer from '../components/Footer'
 
 export default ({ data }) => {
   return (
@@ -73,6 +74,7 @@ export default ({ data }) => {
       </Container>
 
       <Contact />
+      <Footer />
     </>
   )
 }
