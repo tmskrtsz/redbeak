@@ -12,7 +12,7 @@ const Button = styled.button`
   text-transform: uppercase;
   letter-spacing: 1px;
   position: relative;
-  background-color: ${ props => props.theme.color.bg };
+  background-color: ${ props => props.theme.button.bg };
   transition: all 0.25s ${ timingFunctions('easeOutQuad') };
   cursor: pointer;
 

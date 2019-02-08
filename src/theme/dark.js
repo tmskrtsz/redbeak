@@ -9,7 +9,12 @@ export default {
     bannerBg: '#29272f'
   },
   button: {
-    bg: '#fff',
+    bg: '#2e2c35',
+    border: '#757180',
+    color: '#bebcc5'
+  },
+  input: {
+    bg: '#2e2c35',
     border: '#757180',
     color: '#bebcc5'
   },
