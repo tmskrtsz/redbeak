@@ -61,8 +61,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
-        typekit: {
-          id: 'pfi2kcb'
+        google: {
+          families: ['Karla:400,700']
         }
       }
     }

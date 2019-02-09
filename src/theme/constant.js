@@ -1,6 +1,6 @@
 export default {
   text: {
-    fontFamily: 'acumin-pro, sans-serif',
+    fontFamily: 'Karla, sans-serif',
     baseFontSize: '1.8rem'
   },
   breakpoints: {
