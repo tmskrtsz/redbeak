@@ -46,6 +46,7 @@ export default () => (
           <Column>
             <label htmlFor="email">Email Address</label>
             <Input
+              required
               type="email"
               name="email"
               placeholder="john@doe.com"
@@ -54,6 +55,7 @@ export default () => (
           <Column>
             <label htmlFor="name">Name</label>
             <Input
+              required
               type="text"
               name="name"
               placeholder="Your name"
@@ -64,6 +66,7 @@ export default () => (
           <Column>
             <label htmlFor="message">Message</label>
             <TextArea
+              required
               col="20"
               name="message"
               placeholder="Your deepest secrets"
