@@ -13,10 +13,19 @@ import { SectionHeading } from './ui/Heading'
 // Formspree is a workaround
 
 const Contact = styled.div`
+  margin-bottom: 5em;
+
   p {
-    background-color: ${ props => rgba(props.theme.color.text, 0.05) };
+    background-color: ${ props => rgba(props.theme.color.text, 0.06) };
     padding: 1.2em;
     text-align: center;
+    box-shadow: 0 0 0 10px ${ props => rgba(props.theme.color.text, 0.025) };
+  }
+
+  span {
+    font-size: 1.5rem;
+    margin-left: 0.5em;
+    color: ${ props => rgba(props.theme.color.text, 0.7) };
   }
 `
 
@@ -73,8 +82,11 @@ export default () => (
             />
           </Column>
         </InputGroup>
-        <InputGroup>
+        <InputGroup align="center">
           <Button type="submit">Send</Button>
+          <span>
+            Or <a href="mailto:tamas@tuta.io">email</a> me. (mailto)
+          </span>
         </InputGroup>
       </form>
     </Contact>
