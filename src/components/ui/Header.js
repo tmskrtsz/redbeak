@@ -8,7 +8,7 @@ import Navbar from './Navbar'
 import { Link } from './TransitionLink'
 import { Container, Row, Column } from './Grid'
 import { FlyDown } from './Animations'
-import _throttle from 'lodash.throttle'
+import _throttle from 'lodash/throttle'
 import { animateScroll as scroll } from 'react-scroll'
 
 import logo from '../../images/logo.svg'

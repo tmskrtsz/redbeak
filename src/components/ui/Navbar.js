@@ -4,7 +4,7 @@ import { Consumer } from '../../store'
 
 import { Link as GatsbyLink } from 'gatsby'
 import { Link as ScrollLink } from 'react-scroll'
-import { Link } from './TransitionLink'
+import { Link as TransitionLink, HoverStyle } from './TransitionLink'
 import theme from '../../theme/light'
 
 const Navbar = styled.nav`
@@ -17,8 +17,15 @@ const Navbar = styled.nav`
     font-size: 1.4rem;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    padding: 0 1.8em;
+    margin: 0 1.8em;
     outline: 0;
+    transition: color 0.25s ease;
+
+    :hover {
+      color: ${ props => props.theme.color.primary };
+    }
+
+    ${ HoverStyle }
 
     :focus {
       color: ${ props => props.theme.color.primary };
@@ -79,7 +86,7 @@ export default class extends Component {
                     key={idx}
                     to={link.to}
                     href={`/#${ link.to }`}
-                    offset={50}
+                    offset={70}
                     smooth={true}
                     duration={700}
                     spy={true}
@@ -91,13 +98,13 @@ export default class extends Component {
               } else if (!link.anchor) {
                 return (
                   // About link
-                  <Link
+                  <TransitionLink
                     key={idx}
-                    to={link.to}
+                    to={`/${ link.to }`}
                     activeStyle={this.active}
                   >
                     {douche ? link.name.douche : link.name.normal}
-                  </Link>
+                  </TransitionLink>
                 )
               } else {
                 return (
