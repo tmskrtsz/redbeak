@@ -101,7 +101,7 @@ export default class extends PureComponent {
         animDelay="0.5s"
       >
         <Container>
-          <Row grid="3">
+          <Row grid={3}>
             <Column
               dir="row"
               align="center"

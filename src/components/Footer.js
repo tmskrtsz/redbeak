@@ -9,7 +9,7 @@ const FooterStyle = styled(Wrapper)``
 const Footer = () => (
   <FooterStyle as="footer">
     <Container>
-      <Row>
+      <Row grid={1}>
         <Consumer>
           {({ douche }) =>
             douche ? (
@@ -20,7 +20,7 @@ const Footer = () => (
           }
         </Consumer>
       </Row>
-      <Row>
+      <Row grid={1}>
         <Column align="center">
           <p>
             Made with{' '}

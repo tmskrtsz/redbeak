@@ -50,7 +50,10 @@ const firstLetter = str => {
 
 const SectionHeading = ({ children, ...other }) => {
   return (
-    <Section {...other}>
+    <Section
+      {...other}
+      grid={1}
+    >
       <Column>
         <Heading firstChar={firstLetter(children)}>{children}</Heading>
       </Column>
