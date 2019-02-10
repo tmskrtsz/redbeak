@@ -21,7 +21,7 @@ Immediately, the first large hurdle to tackle was the primary task of illustrati
 
 ---
 
-<row>
+<row grid="2">
   <column>
     <inner>
       <img src="video1.gif" alt="First Draft">
@@ -33,7 +33,7 @@ Immediately, the first large hurdle to tackle was the primary task of illustrati
     </inner>
   </column>
 </row>
-<row>
+<row grid="2">
   <column>
       <inner>
       <h2>First Draft</h2>
@@ -56,7 +56,7 @@ I sketched out the structure and components using my pug/stylus boilerplate. The
 
 ![Full shot](shot.jpg)
 
-<row>
+<row grid="2">
   <column>
     <inner>
       <img src="shot2.jpg" alt="UI cards">
@@ -68,7 +68,7 @@ I sketched out the structure and components using my pug/stylus boilerplate. The
     </inner>
   </column>
 </row>
-<row>
+<row grid="2">
   <column>
     <inner>
       <img src="shot4.jpg" alt="Blog">
