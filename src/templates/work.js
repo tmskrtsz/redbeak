@@ -11,15 +11,13 @@ import { Link } from '../components/ui/TransitionLink'
 import { Button } from '../components/ui/Buttons'
 import { Subtitle } from '../components/ui/Heading'
 import { FadeIn } from '../components/ui/Animations'
+import Footer from '../components/Footer'
 
 const Intro = styled(Column)`
-  width: 60%;
-  max-width: 60%;
   height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  flex: auto;
 
   h1 {
     margin: 0;
@@ -37,18 +35,17 @@ const Intro = styled(Column)`
   time {
     color: ${ props => rgba(props.theme.color.text, 0.5) };
   }
+
+  ${ Button } {
+    align-self: flex-start;
+  }
 `
 
 const Meta = styled(Column)`
   display: flex;
   flex: 1;
-  align-items: flex-end;
   justify-content: center;
   margin-left: 4em;
-
-  ${ Inner } {
-    width: 100%;
-  }
 
   h4 {
     margin: 0;
@@ -56,6 +53,7 @@ const Meta = styled(Column)`
 
   p {
     margin: 0;
+    margin-bottom: 1.2em;
     font-size: 1.7rem;
     color: ${ props => rgba(props.theme.color.text, 0.5) };
   }
@@ -87,36 +85,34 @@ export default ({ data, pageContext }) => {
         animDelay="0.3s"
       >
         <Container>
-          <Row>
+          <Row
+            grid={2}
+            columns={[1.3, 1]}
+          >
             <Intro>
-              <Inner>
-                <small>
-                  Read Time: {work.timeToRead} {getNoun}
-                </small>
-                <h1>{work.frontmatter.title}</h1>
-                <time>{work.frontmatter.period}</time>
-                <Subtitle tinted={true}>{work.frontmatter.intro}</Subtitle>
-                {work.frontmatter.link && (
-                  <Button
-                    as="a"
-                    href={work.frontmatter.link}
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    View It Live
-                  </Button>
-                )}
-              </Inner>
+              <small>
+                Read Time: {work.timeToRead} {getNoun}
+              </small>
+              <h1>{work.frontmatter.title}</h1>
+              <time>{work.frontmatter.period}</time>
+              <Subtitle tinted={true}>{work.frontmatter.intro}</Subtitle>
+              {work.frontmatter.link && (
+                <Button
+                  as="a"
+                  href={work.frontmatter.link}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  View It Live
+                </Button>
+              )}
             </Intro>
             <Meta>
-              <Inner>
-                <h4>Client</h4>
-                <p>{work.frontmatter.client}</p>
-              </Inner>
-              <Inner>
-                <h4>Roles</h4>
-                <p>{work.frontmatter.roles}</p>
-              </Inner>
+              <h4>Client</h4>
+              <p>{work.frontmatter.client}</p>
+
+              <h4>Roles</h4>
+              <p>{work.frontmatter.roles}</p>
             </Meta>
           </Row>
         </Container>
@@ -128,40 +124,37 @@ export default ({ data, pageContext }) => {
         >
           {renderAst(work.htmlAst)}
           <Container>
-            <Row>
-              {previous && (
-                <Column>
+            <Row grid={2}>
+              <Column>
+                {previous && (
                   <Pagination
                     to={previous.fields.slug}
                     rel="prev"
                     color={previous.frontmatter.bg}
                   >
-                    <Inner>
-                      <h4>Previous Case</h4>
-                      {previous.frontmatter.title}
-                    </Inner>
+                    <h4>Previous Case</h4>
+                    {previous.frontmatter.title}
                   </Pagination>
-                </Column>
-              )}
-              {next && (
-                <Column align="flex-end">
+                )}
+              </Column>
+              <Column align="flex-end">
+                {next && (
                   <Pagination
                     to={next.fields.slug}
                     color={next.frontmatter.bg}
                     rel="next"
                     style={{ textAlign: 'right' }}
                   >
-                    <Inner>
-                      <h4>Next Case</h4>
-                      {next.frontmatter.title}
-                    </Inner>
+                    <h4>Next Case</h4>
+                    {next.frontmatter.title}
                   </Pagination>
-                </Column>
-              )}
+                )}
+              </Column>
             </Row>
           </Container>
         </Article>
       </Container>
+      <Footer />
     </>
   )
 }

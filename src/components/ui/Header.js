@@ -6,7 +6,7 @@ import { Consumer } from '../../store'
 import Switch from './Switch'
 import Navbar from './Navbar'
 import { Link } from './TransitionLink'
-import { Container, Row, Column } from './Grid'
+import { Container, Row, Column, Inner } from './Grid'
 import { FlyDown } from './Animations'
 import _throttle from 'lodash/throttle'
 import { animateScroll as scroll } from 'react-scroll'
@@ -51,8 +51,7 @@ const ScrollUp = styled.button`
   font-size: 1.4rem;
   margin-left: 1.2em;
   margin-top: 0.6rem;
-  padding: 0.4em 1em;
-  padding-bottom: 0.5em;
+  padding: 0.6em 1em;
   cursor: pointer;
 `
 
@@ -102,10 +101,7 @@ export default class extends PureComponent {
         animDelay="0.5s"
       >
         <Container>
-          <Row
-            align="center"
-            grid={1 / 3}
-          >
+          <Row grid="3">
             <Column
               dir="row"
               align="center"
@@ -119,10 +115,16 @@ export default class extends PureComponent {
               </Home>
               {showScrollUp && <ScrollUp onClick={this.scrollTop}>Scroll Up</ScrollUp>}
             </Column>
-            <Column>
+            <Column
+              justify="center"
+              align="center"
+            >
               <Navbar location={location} />
             </Column>
-            <Column style={{ marginLeft: 'auto' }}>
+            <Column
+              justify="center"
+              align="flex-end"
+            >
               <Consumer>{({ actions, douche }) => <Switch
                 onClick={actions.switchTone}
                 status={douche}

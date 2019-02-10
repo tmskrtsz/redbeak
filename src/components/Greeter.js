@@ -24,6 +24,14 @@ const Greeter = styled.div`
     font-size: 1.5rem;
     margin-left: 1.5em;
   }
+
+  @media (max-width: 980px) {
+    max-width: 80%;
+  }
+
+  @media (max-width: ${ props => props.theme.breakpoints.sm }) {
+    max-width: 100%;
+  }
 `
 
 export default () => (

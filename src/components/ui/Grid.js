@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import theme from '../../theme/constant'
 
@@ -6,6 +6,10 @@ const Container = styled.div`
   max-width: ${ props => props.theme.breakpoints[props.size] || props.theme.breakpoints.lg };
   margin: 0 auto;
   ${ props => props.anim };
+
+  @media (max-width: ${ props => props.theme.breakpoints.lg }) {
+    padding: 0 2em;
+  }
 `
 
 const Column = styled.div`
@@ -15,19 +19,25 @@ const Column = styled.div`
   justify-content: ${ props => props.justify };
   padding: ${ props => props.padding };
   flex: 1;
+  flex-shrink: 1;
 `
 
 const Row = styled.div`
-  display: flex;
-  align-items: ${ props => props.align };
-  justify-content: ${ props => props.justify };
-  flex-wrap: wrap;
-  flex-basis: ${ props => (props.grid ? props.grid * 100 + '%' : null) };
-  margin-left: ${ props => -props.theme.space.gutter }em;
-  margin-right: ${ props => -props.theme.space.gutter }em;
+  display: grid;
+  grid-template-columns: ${ props => `repeat(${ props.grid || '1' }, 1fr)` };
+  grid-row-gap: ${ props => props.theme.space.gutter };
+  grid-column-gap: ${ props => props.theme.space.gutter };
 
-  ${ Column } {
-    flex-basis: ${ props => (props.grid ? props.grid * 100 + '%' : null) };
+  ${ props =>
+    props.columns &&
+    css`
+      grid-template-columns: ${ props.columns.map(col => `${ col }fr `) };
+    ` }
+
+
+
+  @media (max-width: ${ props => props.theme.breakpoints.sm }) {
+    grid-template-columns: repeat(1, 1fr);
   }
 `
 
@@ -39,7 +49,8 @@ const Wrapper = styled.div`
 `
 
 const Inner = styled.div`
-  margin: ${ props => props.theme.space.gutter }em;
+  /* margin-left: ${ props => props.theme.space.gutter }em;
+  margin-right: ${ props => props.theme.space.gutter }em; */
 `
 Container.propTypes = {
   size: PropTypes.oneOf(Object.keys(theme.breakpoints))
@@ -48,7 +59,8 @@ Container.propTypes = {
 Row.propTypes = {
   align: PropTypes.oneOf(['center', 'flex-end', 'flex-start']),
   justify: PropTypes.oneOf(['center', 'flex-end', 'flex-start']),
-  grid: PropTypes.number
+  grid: PropTypes.number.isRequired,
+  columns: PropTypes.arrayOf(PropTypes.number)
 }
 
 Column.propTypes = {

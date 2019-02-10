@@ -20,7 +20,7 @@ I/O Coin is a digital currency much like Bitcoin. It is not Bitcoin, however, th
 
 I/O Coin is an alt-coin and thereby inherited Bitcoin's Qt Wallet GUI. This project was about setting I/O Coin apart from hundreds of other alt-coins and one of the first steps was to bring personality and brand to the fore. We made use of the latest JavaScript technologies and re-imagined the wallet from the ground up.
 
-<row>
+<row grid="2">
 <column>
   <inner>
   <h2>Lift Off</h2>
@@ -33,7 +33,7 @@ I/O Coin is an alt-coin and thereby inherited Bitcoin's Qt Wallet GUI. This proj
   </inner>
 </column>
 </row>
-<row>
+<row grid="2">
   <column>
   <inner>
     <img src="2.jpg" alt="Bitcoin wallet" />

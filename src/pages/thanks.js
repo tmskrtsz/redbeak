@@ -16,7 +16,7 @@ const Thank = () => (
         justify="center"
         align="center"
       >
-        <p>🙌 Thanks, will be in touch shortly!</p>
+        <h1>🙌 Thanks, will be in touch shortly!</h1>
         <Link to="/">Back Home</Link>
       </Column>
     </ContactRow>
