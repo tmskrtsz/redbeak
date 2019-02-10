@@ -23,8 +23,9 @@ const Section = styled(Row)`
 const Heading = styled.h2`
   text-transform: lowercase;
   font-size: 3.6rem;
-  font-weight: 400;
+  font-weight: 700;
   position: relative;
+  z-index: 100;
 
   &::before {
     content: '${ props => props.firstChar }';
@@ -33,7 +34,7 @@ const Heading = styled.h2`
     left: 50%;
     font-size: 7rem;
     line-height: 1;
-    z-index: -1;
+    z-index: 50;
     transform: translateX(-50%);
     color: ${ props => rgba(props.theme.color.text, 0.1) };
   }

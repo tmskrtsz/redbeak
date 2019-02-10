@@ -22,7 +22,7 @@ export default ({ data }) => {
         keywords={[`gatsby`, `application`, `react`]}
       />
       <Container>
-        <Row>
+        <Row grid={1}>
           <Column>
             <Inner>
               <Greeter />
@@ -45,28 +45,26 @@ export default ({ data }) => {
               </React.Fragment>
             )}
           </Consumer>
-          <Row grid={1 / 2}>
+          <Row grid={2}>
             {data.allMarkdownRemark.edges.map(work => (
               <Column key={work.node.id}>
-                <Inner>
-                  <Link
-                    to={work.node.fields.slug}
-                    color={work.node.frontmatter.bg}
-                  >
-                    <Card bg={work.node.frontmatter.bg}>
-                      <Cover>
-                        <Img
-                          fluid={work.node.frontmatter.banner.childImageSharp.fluid}
-                          fadeIn={true}
-                        />
-                      </Cover>
-                      <Meta>
-                        <Title>{work.node.frontmatter.title}</Title>
-                        <Subtitle>{work.node.frontmatter.intro}</Subtitle>
-                      </Meta>
-                    </Card>
-                  </Link>
-                </Inner>
+                <Link
+                  to={work.node.fields.slug}
+                  color={work.node.frontmatter.bg}
+                >
+                  <Card bg={work.node.frontmatter.bg}>
+                    <Cover>
+                      <Img
+                        fluid={work.node.frontmatter.banner.childImageSharp.fluid}
+                        fadeIn={true}
+                      />
+                    </Cover>
+                    <Meta>
+                      <Title>{work.node.frontmatter.title}</Title>
+                      <Subtitle>{work.node.frontmatter.intro}</Subtitle>
+                    </Meta>
+                  </Card>
+                </Link>
               </Column>
             ))}
           </Row>

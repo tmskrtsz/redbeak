@@ -4,11 +4,11 @@ export default {
     baseFontSize: '1.8rem'
   },
   breakpoints: {
-    sm: '532px',
+    sm: '580px',
     md: '768px',
     lg: '1180px'
   },
   space: {
-    gutter: 1.2
+    gutter: '1.8em'
   }
 }

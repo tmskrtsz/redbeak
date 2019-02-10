@@ -2,16 +2,28 @@ import styled from 'styled-components'
 import { timingFunctions, rgba, darken, shade } from 'polished'
 
 const Cover = styled.div`
-  width: 338px;
+  width: 33.8rem;
   position: absolute;
   left: 50%;
   bottom: 0;
   transform: translate(-50%, 25%);
   transition: transform 0.25s ${ timingFunctions('easeInOutQuad') };
+
+  @media (max-width: ${ props => props.theme.breakpoints.md }) {
+    width: 23.8rem;
+  }
 `
 
 const Meta = styled.div`
   max-width: 80%;
+
+  @media (max-width: 98rem) {
+    max-width: 100%;
+  }
+
+  @media (max-width: ${ props => props.theme.breakpoints.md }) {
+    text-align: center;
+  }
 `
 
 const Title = styled.h2`
@@ -20,6 +32,14 @@ const Title = styled.h2`
 
 const Subtitle = styled.p`
   padding: 0;
+
+  @media (max-width: ${ props => props.theme.breakpoints.md }) {
+    display: none;
+  }
+
+  @media (max-width: ${ props => props.theme.breakpoints.sm }) {
+    display: inline;
+  }
 `
 
 const Card = styled.div`
@@ -46,6 +66,14 @@ const Card = styled.div`
   ${ Title },
   ${ Subtitle } {
     color: ${ props => shade(0.7, props.bg) };
+  }
+
+  @media (max-width: 98rem) {
+    min-height: 44rem;
+  }
+
+  @media (max-width: ${ props => props.theme.breakpoints.md }) {
+    min-height: 34rem;
   }
 `
 

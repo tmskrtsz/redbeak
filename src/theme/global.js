@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
 		padding-top: 10rem;
 		color: ${ props => props.theme.color.text };
 		transition: all 0.15s ease-in;
+    overflow-x: hidden;
 	}
 
 	a {

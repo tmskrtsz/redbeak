@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { rgba } from 'polished'
 
 import { Consumer } from '../store'
-import { Container, Column } from './ui/Grid'
+import { Container, Row, Column } from './ui/Grid'
 import { Input, InputGroup, TextArea } from './ui/Input'
 import { Button } from './ui/Buttons'
 import { SectionHeading } from './ui/Heading'
@@ -51,11 +51,11 @@ export default () => (
         action="https://formspree.io/lll@tuta.io"
       >
         {/* <input type="hidden" name="_next" value="https://mysite.com/thanks.html"/> */}
-        <InputGroup>
+        <InputGroup grid={2}>
           <Column>
             <label htmlFor="email">Email Address</label>
             <Input
-              required
+              required={true}
               type="email"
               name="email"
               placeholder="john@doe.com"
@@ -64,30 +64,37 @@ export default () => (
           <Column>
             <label htmlFor="name">Name</label>
             <Input
-              required
+              required={true}
               type="text"
               name="name"
               placeholder="Your name"
             />
           </Column>
         </InputGroup>
-        <InputGroup>
+        <InputGroup grid={1}>
           <Column>
             <label htmlFor="message">Message</label>
             <TextArea
-              required
+              required={true}
               col="20"
               name="message"
               placeholder="Your deepest secrets"
             />
           </Column>
         </InputGroup>
-        <InputGroup align="center">
-          <Button type="submit">Send</Button>
-          <span>
-            Or <a href="mailto:tamas@tuta.io">email</a> me. (mailto)
-          </span>
-        </InputGroup>
+        <Row grid={2}>
+          <Column align="flex-start">
+            <Button type="submit">Send</Button>
+          </Column>
+          <Column
+            align="flex-end"
+            justify="center"
+          >
+            <span>
+              Or <a href="mailto:tamas@tuta.io">email</a> me. (mailto)
+            </span>
+          </Column>
+        </Row>
       </form>
     </Contact>
   </Container>

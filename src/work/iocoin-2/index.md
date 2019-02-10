@@ -23,7 +23,7 @@ With lessons learned while developing the first wallet, I set off to sketch out 
 
 ![Wallet Wireframes](wireframes.png)
 
-<row>
+<row grid="2">
   <column padding="1.2em">
     <div className="icon">
       <img src="mega.svg" />
@@ -39,7 +39,7 @@ With lessons learned while developing the first wallet, I set off to sketch out 
     <p>Challenging yet fun, wireframing can feel like a drag at times, however, an indispensable step. It ensures that the project doesn't stall during development and sets up specific and well defined goals</p>
   </column>
 </row>
-<row>
+<row grid="2">
   <column padding="1.2em">
     <div className="icon">
       <img src="git.svg" />
@@ -64,7 +64,7 @@ This is still a project in progress. A lot has been changed, rewritten and scrap
 
 ![shot 1](shot1.jpg)
 
-<row>
+<row grid="2">
   <column>
     <inner>
       <img src="shot2.png" />

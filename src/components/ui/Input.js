@@ -36,10 +36,6 @@ const InputGroup = styled(Row)`
   margin-right: 0;
   margin-bottom: 0.7em;
 
-  ${ Column } {
-    padding: 0.5em;
-  }
-
   ${ Button } {
     margin: 0.5em;
   }
