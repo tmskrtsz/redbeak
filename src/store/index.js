@@ -24,14 +24,25 @@ class Store extends Component {
 
     if (!this.state.douche) {
       await this.setState({ theme: lightTheme })
+      window.localStorage.setItem('douche', 'false')
     } else {
       await this.setState({ theme: darkTheme })
+      window.localStorage.setItem('douche', 'true')
     }
   }
 
-  componentDidMount () {
-    if (!this.state.theme) {
-      this.setState({ theme: lightTheme })
+  async componentDidMount () {
+    const currentState = JSON.parse(window.localStorage.getItem('douche'))
+
+    if (currentState === null) {
+      window.localStorage.setItem('douche', 'false')
+      await this.setState({ theme: lightTheme })
+    } else {
+      console.log(currentState)
+      await this.setState({
+        douche: currentState,
+        theme: currentState ? darkTheme : lightTheme
+      })
     }
   }
 
