@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import 'normalize.css'
+
 import bgLight from '../images/bg_light.png'
 
 const GlobalStyle = createGlobalStyle`
@@ -21,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
 		color: ${ props => props.theme.color.text };
 		transition: all 0.15s ease-in;
     overflow-x: hidden;
+    overflow-y: ${ props => (props.menuActive ? 'hidden' : null) };
 	}
 
 	a {

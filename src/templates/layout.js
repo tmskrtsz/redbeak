@@ -8,10 +8,13 @@ import GlobalStyle from '../theme/global'
 const Layout = ({ children, location }) => (
   <Store>
     <Consumer>
-      {({ theme, douche }) => (
+      {({ theme, douche, menuActive }) => (
         <ThemeProvider theme={theme}>
           <>
-            <GlobalStyle douche={douche} />
+            <GlobalStyle
+              douche={douche}
+              menuActive={menuActive}
+            />
             <Header location={location} />
             {children}
           </>

@@ -10,9 +10,11 @@ class Store extends Component {
 
     this.state = {
       douche: false,
+      menuActive: false,
       theme: null,
       actions: {
-        switchTone: this.switchTone
+        switchTone: this.switchTone,
+        handleMenuClick: this.handleMenuClick
       }
     }
   }
@@ -31,6 +33,8 @@ class Store extends Component {
     }
   }
 
+  handleMenuClick = () => this.setState({ menuActive: !this.state.menuActive })
+
   async componentDidMount () {
     const currentState = JSON.parse(window.localStorage.getItem('douche'))
 
@@ -38,7 +42,6 @@ class Store extends Component {
       window.localStorage.setItem('douche', 'false')
       await this.setState({ theme: lightTheme })
     } else {
-      console.log(currentState)
       await this.setState({
         douche: currentState,
         theme: currentState ? darkTheme : lightTheme

@@ -30,6 +30,12 @@ const Header = styled.header`
     margin-left: 0;
     margin-right: 0;
   }
+
+  @media (max-width: ${ props => props.theme.breakpoints.md }) {
+    ${ Row } {
+      grid-row-gap: 0;
+    }
+  }
 `
 
 const Home = styled(Link)`

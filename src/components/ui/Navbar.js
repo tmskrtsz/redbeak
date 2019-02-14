@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { Consumer } from '../../store'
 
 import { Link as GatsbyLink } from 'gatsby'
@@ -7,10 +7,35 @@ import { Link as ScrollLink } from 'react-scroll'
 import { Link as TransitionLink, HoverStyle } from './TransitionLink'
 import theme from '../../theme/light'
 
+const MobileMenu = styled.button`
+  position: absolute;
+  top: 50%;
+  right: 1.4em;
+  z-index: 1500;
+  color: ${ props => props.theme.color.text };
+  display: none;
+  transform: translateY(-50%);
+
+  @media (max-width: ${ props => props.theme.breakpoints.md }) {
+    display: inline-block;
+  }
+`
+
+const BlurAnim = keyframes`
+  0% {
+    filter: blur(15px);
+  }
+
+  100% {
+    filter: blur(0);
+  }
+`
+
 const Navbar = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  animation: ${ BlurAnim } 0.2s ease-in;
 
   a {
     color: ${ props => props.theme.color.text };
@@ -35,13 +60,29 @@ const Navbar = styled.nav`
       color: ${ props => props.theme.color.primary };
     }
   }
+
+  @media (max-width: ${ props => props.theme.breakpoints.md }) {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    background-color: ${ props => props.theme.color.bg };
+    z-index: 1000;
+    display: ${ props => (props.mobileActive ? 'flex' : 'none') };
+
+    a {
+      display: block;
+      font-weight: 700;
+      padding: 2em 0;
+      font-size: 2rem;
+    }
+  }
 `
 
 export default class extends Component {
-  active = {
-    color: theme.color.primary
-  }
-
   state = {
     links: [
       {
@@ -71,55 +112,71 @@ export default class extends Component {
     ]
   }
 
+  active = {
+    color: theme.color.primary
+  }
+
   render () {
     const { location } = this.props
     const { links } = this.state
     return (
-      <Consumer>
-        {({ douche }) => (
-          <Navbar location={location}>
-            {links.map((link, idx) => {
-              if (location.pathname === '/' && link.anchor) {
-                return (
-                  <ScrollLink
-                    activeClass="active"
-                    key={idx}
-                    to={link.to}
-                    href={`/#${ link.to }`}
-                    offset={70}
-                    smooth={true}
-                    duration={700}
-                    spy={true}
-                    hashSpy={true}
-                  >
-                    {douche ? link.name.douche : link.name.normal}
-                  </ScrollLink>
-                )
-              } else if (!link.anchor) {
-                return (
-                  // About link
-                  <TransitionLink
-                    key={idx}
-                    to={`/${ link.to }`}
-                    activeStyle={this.active}
-                  >
-                    {douche ? link.name.douche : link.name.normal}
-                  </TransitionLink>
-                )
-              } else {
-                return (
-                  <GatsbyLink
-                    key={idx}
-                    to="/"
-                  >
-                    {douche ? link.name.douche : link.name.normal}
-                  </GatsbyLink>
-                )
-              }
-            })}
-          </Navbar>
-        )}
-      </Consumer>
+      <>
+        <Consumer>
+          {({ douche, menuActive, actions }) => (
+            <Navbar
+              location={location}
+              mobileActive={menuActive}
+              onClick={actions.handleMenuClick}
+            >
+              {links.map((link, idx) => {
+                if (location.pathname === '/' && link.anchor) {
+                  return (
+                    <ScrollLink
+                      activeClass="active"
+                      key={idx}
+                      to={link.to}
+                      href={`/#${ link.to }`}
+                      offset={70}
+                      smooth={true}
+                      duration={700}
+                      spy={true}
+                      hashSpy={true}
+                      onClick={actions.handleMenuClick}
+                    >
+                      {douche ? link.name.douche : link.name.normal}
+                    </ScrollLink>
+                  )
+                } else if (!link.anchor) {
+                  return (
+                    // About link
+                    <TransitionLink
+                      key={idx}
+                      to={`/${ link.to }`}
+                      activeStyle={this.active}
+                    >
+                      {douche ? link.name.douche : link.name.normal}
+                    </TransitionLink>
+                  )
+                } else {
+                  return (
+                    <GatsbyLink
+                      key={idx}
+                      to="/"
+                    >
+                      {douche ? link.name.douche : link.name.normal}
+                    </GatsbyLink>
+                  )
+                }
+              })}
+            </Navbar>
+          )}
+        </Consumer>
+        <Consumer>
+          {({ actions, menuActive }) => (
+            <MobileMenu onClick={actions.handleMenuClick}>{menuActive ? 'Close' : 'Menu'}</MobileMenu>
+          )}
+        </Consumer>
+      </>
     )
   }
 }

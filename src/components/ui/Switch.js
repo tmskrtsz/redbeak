@@ -2,10 +2,21 @@ import React from 'react'
 import styled from 'styled-components'
 import { rgba } from 'polished'
 
+import { Consumer } from '../../store'
+
 const SwitchContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  @media (max-width: ${ props => props.theme.breakpoints.md }) {
+    display: ${ props => (props.mobileActive ? 'flex' : 'none') };
+    z-index: 1500;
+    position: absolute;
+    top: 50%;
+    left: 1.4em;
+    transform: translateY(-50%);
+  }
 
   label {
     height: 30px;
@@ -67,15 +78,23 @@ const Label = styled.span`
 `
 
 export default ({ onClick, status }) => (
-  <SwitchContainer onChange={onClick}>
-    <Label active={!status}>Normal</Label>
-    <label htmlFor="doucheSwitch">
-      <input
-        type="checkbox"
-        name="doucheSwitch"
-        defaultChecked={status}
-      />
-    </label>
-    <Label active={status}>Douche</Label>
-  </SwitchContainer>
+  <Consumer>
+    {({ menuActive }) => (
+      <SwitchContainer
+        onChange={onClick}
+        mobileActive={menuActive}
+      >
+        {console.log(menuActive)}
+        <Label active={!status}>Normal</Label>
+        <label htmlFor="doucheSwitch">
+          <input
+            type="checkbox"
+            name="doucheSwitch"
+            defaultChecked={status}
+          />
+        </label>
+        <Label active={status}>Douche</Label>
+      </SwitchContainer>
+    )}
+  </Consumer>
 )
