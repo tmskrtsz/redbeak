@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
 		color: ${ props => props.theme.color.text };
 		transition: all 0.15s ease-in;
     overflow-x: hidden;
-    overflow-y: ${ props => (props.menuActive ? 'hidden' : null) };
+    /* overflow-y: ${ props => (props.menuActive ? 'hidden' : null) }; */ // Temporarily disabled
 	}
 
 	a {
