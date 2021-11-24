@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Auka.co",
+    "description": "Design, branding and frontend development 2021-present",
+    "image": "/shots/auka.png",
+    "link": "https://auka.co"
+  },
+  {
+    "title": "CryptoWeather",
+    "description": "Design, branding and frontend development 2021-present",
+    "image": "/shots/cryptoweather.png",
+    "link": "https://dev.cryptoweather.ai"
+  },
+  {
+    "title": "Investabit",
+    "description": "Design, branding and frontend development 2021-present",
+    "image": "/shots/investabit.png",
+    "link": "https://investabit.com"
+  },
+  {
+    "title": "Are We Fucked?",
+    "description": "Design, branding and frontend development 2021-present",
+    "image": "/shots/arewefucked.png",
+    "link": "https://arewefucked.app"
+  }
+]
