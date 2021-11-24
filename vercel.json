@@ -1,0 +1,39 @@
+{
+  "redirects": [
+    {
+      "source": "/about",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/jobfairy",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/campus-compass",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/dions",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/hiilinielu-design",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/iocoin-2",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/iocoin-1",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}
