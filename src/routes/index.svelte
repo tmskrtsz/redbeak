@@ -1,7 +1,9 @@
 <script lang="ts">
   import { portal } from "svelte-portal/src/Portal.svelte"
 
+  import LogoCard from './../components/logo-card.svelte'
   import works from '../../config/works.json'
+  import tools from '../../config/tools.json'
 
   type WorkType = {
     title: string,
@@ -99,16 +101,25 @@
       {/each}
       </ul>
   </div>
-  <div class="tools">
+  <section class="section-tools">
     <h3 class="mute">Tools</h3>
     <p>Some of the tools I use on a daily basis</p>
     <div class="tools">
-      <span>Next.js, Typescript, Gatsby, React, Svelte, Supabase, MongoDB, Vercel, Netlify, Insomnia, VScode</span>
+      {#each tools as tool}
+        <LogoCard
+          name={tool.name}
+          imgSrc={tool.image}
+        />
+      {/each}
     </div>
-  </div>
+  </section>
 </div>
 
 <style >
+  img {
+    width: 100%;
+    height: auto;
+  }
   .container {
     max-width: 980px;
     margin: 0 auto;
@@ -170,7 +181,7 @@
   }
 
   .works h3,
-  .tools h3 {
+  .section-tools h3 {
     margin-bottom: 1em;
   }
 
@@ -257,16 +268,20 @@
   }
 
   .tools {
+    width: 100%;
     margin-bottom: 4em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0px;
   }
 
-  .tools span {
+  .section-tools span {
     font-size: 1.6rem;
     margin-right: 0.5em;
     line-height: 1.8;
   }
 
-  .tools p {
+  .section-tools p {
     margin-bottom: 2em;
     font-size: 1.7rem;
     color: var(--link-color);

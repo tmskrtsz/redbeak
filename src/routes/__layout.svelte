@@ -21,6 +21,8 @@
 <style global>
   :root {
     --page-bg: #112;
+    --card-bg: #131325;
+    --card-bg-hover: #151528;
     --font-color: #fff;
     --link-color: #cca5f5;
     --font-family: 'Work Sans', sans-serif;
