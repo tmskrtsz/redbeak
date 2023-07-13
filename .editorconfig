@@ -9,7 +9,7 @@ line_length = 120
 
 [*.{ini,html,jinja,css,scss,yml}]
 indent_style = space
-indent_size = 4
+indent_size = 2
 
 [*.{js,jsx,json,svelte,ts}]
 indent_style = space
