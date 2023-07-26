@@ -1,0 +1,33 @@
+.logo {
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  cursor: pointer;
+  animation: fadeIn 2s 1s ease forwards;
+}
+
+.logo img {
+  background-color: var(--page-bg);
+}
+
+.logo span {
+  color: var(--black);
+  font-family: var(--font-headline);
+  font-weight: 600;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: all 0.4s var(--ease);
+  z-index: -1;
+}
+
+.logo:hover span {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+

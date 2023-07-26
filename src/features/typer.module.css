@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.typer {
+  border-top-left-radius: 7px;
+}
+
+.typer > span {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+}
+
+.typer > span i {
+  width: 8px;
+  height: 8px;
+  background-color: var(--gray-300);
+  display: inline-block;
+  border-radius: 24px;
+  animation: bounce 0.5s ease-in-out infinite alternate;
+}
+
+.typer > span i:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+span.status {
+  font-size: 0.85rem;
+  color: var(--gray-400);
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-50%);
+  }
+}

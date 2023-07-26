@@ -1,0 +1,20 @@
+{
+  "name": "check-in",
+  "version": "1.0.0",
+  "description": "Telegram bot for sending current location",
+  "main": "server.js",
+  "author": "Tamas Kertesz",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsx watch server.ts",
+    "start": "tsx server.ts"
+  },
+  "dependencies": {
+    "@notionhq/client": "^2.2.8",
+    "telegraf": "^4.12.2",
+    "tsx": "^3.12.7"
+  },
+  "devDependencies": {
+    "dotenv": "^16.3.1"
+  }
+}
