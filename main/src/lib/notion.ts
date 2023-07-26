@@ -1,5 +1,3 @@
-import { normalizeNotionResponse } from '../../check-in/utils/index';
-
 export async function getPastLocations() {
   const res = await fetch(`https://api.notion.com/v1/databases/${process.env.NOTION_DB_ID}/query`, {
     headers: {
@@ -19,4 +17,21 @@ export async function getLastLocation() {
     city: last.city,
     country: last.country
   };
+}
+
+export function normalizeNotionResponse(data) {
+  const normalizedData = [];
+
+  data.results.forEach((entry) => {
+    //@ts-ignore
+    const { created, city, country, longitude, latitude } = entry.properties;
+    normalizedData.push({
+      created: created.date.start,
+      city: city.rich_text[0].plain_text,
+      country: country.rich_text[0].plain_text,
+      longitude: longitude.number,
+      latitude: latitude.number
+    });
+  });
+  return normalizedData;
 }
