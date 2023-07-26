@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "tsx watch server.ts",
-    "start": "tsx server.ts"
+    "start": "tsx --experimental-fetch server.ts"
   },
   "dependencies": {
     "@notionhq/client": "^2.2.8",
