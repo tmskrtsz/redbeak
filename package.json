@@ -1,5 +1,5 @@
 {
-  "name": "redbeak-v6",
+  "name": "redbeak",
   "version": "6.0.0",
   "description": "Portfolio and web presence for Tamás Kertész",
   "author": "Tamás Kertész <tamask@hey.com>",
@@ -14,7 +14,8 @@
     "@types/react": "18.2.14",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
-    "eslint": "^7.32.0",
+    "eslint": "^8.45.0",
+    "eslint-config-next": "^13.4.12",
     "eslint-config-prettier": "^8.3.0",
     "prettier": "^2.4.1",
     "typescript": "^5.1.6"
