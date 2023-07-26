@@ -11,6 +11,7 @@
   background-color: var(--button-normal);
   border-radius: 100px;
   border: 1px solid var(--gray-100);
+  color: var(--gray-700);
 }
 
 .default:hover,
@@ -33,7 +34,7 @@
 }
 
 .secondary:active:focus {
-  outline: 1;
+  outline: 1px;
   box-shadow: 0 0 0 2px white, 0 0 0 3px var(--gray-400);
   background-color: var(--gray-300);
 }

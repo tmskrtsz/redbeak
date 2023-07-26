@@ -11,7 +11,7 @@
 }
 
 .logo span {
-  color: var(--black);
+  color: var(--gray-700);
   font-family: var(--font-headline);
   font-weight: 600;
   transform: translateX(-50%);
