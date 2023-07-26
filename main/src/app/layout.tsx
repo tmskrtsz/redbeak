@@ -6,7 +6,6 @@ import cx from 'classnames';
 
 import './style.css';
 import { Nav } from '../features/nav';
-import { Footer } from '../features/footer';
 
 const local = localFont({
   src: [
