@@ -1,5 +1,13 @@
 .layout {
+  margin-left: 1em;
+  margin-right: 1em;
   text-align: left;
-  max-width: 588px;
-  margin: 0 auto;
+  max-width: 100%;
+}
+
+@media (min-width: 588px) {
+  .layout {
+    margin: 0 auto;
+    max-width: 588px;
+  }
 }
