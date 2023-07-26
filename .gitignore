@@ -7,3 +7,5 @@ node_modules
 build
 .vercel_build_output
 .next
+.env*
+.log

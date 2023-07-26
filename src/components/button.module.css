@@ -1,0 +1,91 @@
+.button {
+  cursor: pointer;
+  outline: 2px;
+  outline-offset: 2px;
+  outline-style: solid;
+  outline-color: transparent;
+  position: relative;
+}
+
+.default {
+  background-color: var(--button-normal);
+  border-radius: 100px;
+  border: 1px solid var(--gray-100);
+}
+
+.default:hover,
+.default:focus {
+  background-color: var(--gray-50);
+}
+
+.default:focus {
+  outline-color: var(--gray-50);
+}
+
+.secondary {
+  color: var(--gray-700);
+  background-color: var(--gray-100);
+  border-radius: 100px;
+}
+
+.secondary:hover {
+  background-color: var(--gray-200);
+}
+
+.secondary:active:focus {
+  outline: 1;
+  box-shadow: 0 0 0 2px white, 0 0 0 3px var(--gray-400);
+  background-color: var(--gray-300);
+}
+
+.link {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 100%;
+  height: 0.8em;
+  background-color: var(--red-400);
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: center;
+  transition: all 0.2s var(--ease);
+}
+
+.link:hover {
+  color: var(--red-400);
+}
+
+.link:hover::after {
+  opacity: 0.12;
+  transform: scale(1);
+}
+
+.link:focus {
+  color: var(--red-400);
+}
+
+.link:focus::after {
+  opacity: 0.25;
+  background-color: var(--red-400);
+}
+
+.size-sm {
+  padding: 0.4em 0.7em;
+  font-size: 0.8rem;
+}
+
+.size-md {
+  padding: 0.7em 1.2em;
+  font-size: 0.9rem;
+}
+
+.size-lg {
+  padding: 0.8em 1.3em;
+  font-size: 1.1rem;
+}

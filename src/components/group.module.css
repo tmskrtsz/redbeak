@@ -1,0 +1,5 @@
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-y-xs);
+}

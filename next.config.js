@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 export default {
   experimental: {
-    swcMinify: true
+    swcMinify: true,
+    turbo: true
   }
   /* config options here */
 }

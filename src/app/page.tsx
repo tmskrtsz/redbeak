@@ -1,86 +1,101 @@
 'use client';
 
-import React, { useState } from 'react';
-import { AnimatePresence, motion, LayoutGroup, stagger } from 'framer-motion';
-import data from './data';
+import React, { useRef, useState } from 'react';
+import { data } from './data';
+import { Intro } from '../features/intro';
+import { Typer } from '../features/typer';
+import { Layout } from '../components/layout';
+import { Spacer } from '../components/spacer';
+import { IncomingMessages } from '../features/incoming-messages';
+import { OutgoingMessage } from '../features/outgoing-message';
+import OptionsGroup from '../features/options-group';
+import { SplitLayout } from '../features/split-layout';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export default function Home() {
+  const [renderedIds, setRenderedIds] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
-  const [rendered, setRendered] = useState([]);
+  const buttonRef = useRef<HTMLDivElement>(null);
+  const isDone = renderedIds.length === data.length;
 
   function triggerAnswer(id: number) {
-    setRendered([
-      ...rendered,
-      id
-    ]);
+    setIsTyping(true);
+
+    setRenderedIds((rendered) => {
+      if (!rendered.includes(id)) {
+        return [...rendered, id];
+      }
+    });
   }
 
-  const list = {
-    hidden: {
-      opacity: 0
-    },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.5
-      }
-    }
-  };
-
-  const item = {
-    visible: { opacity: 1, y: 0 },
-    hidden: { opacity: 0, y: -100 }
-  };
-
   return (
-    <div className="App">
-      <h1 className="text-intro">
-        My name is Tamás, <span>ask me anything.</span>
-      </h1>
-
-      <motion.ul layout initial="hidden" animate="visible" variants={list}>
-        {data
-          .filter((entry) => rendered.includes(entry.id))
-          .map((entry, idx) =>
-            entry.texts.map((text) => (
-              <motion.li key={text} variants={item} custom={idx}>
-                {text}
-              </motion.li>
-            ))
-          )}
-      </motion.ul>
-
-      <AnimatePresence>
-        {isTyping ? (
-          <motion.div
-            animate={{ opacity: 1 }}
-            className="typing"
-            aria-label="Typing answer"
-            // onAnimationComplete={() => setIsTyping(false)}
-          >
-            <LayoutGroup>
-              <span />
-              <span />
-              <span />
-            </LayoutGroup>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
-      <section>
-        <AnimatePresence>
-          {!isTyping && (
-            <motion.div className="buttons" layout key={rendered.length}>
-              {data
-                .filter((entry) => !rendered.includes(entry.id))
-                .map((el) => (
-                  <motion.button key={el.id} onClick={() => triggerAnswer(el.id)}>
-                    {el.label}
-                  </motion.button>
-                ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </section>
-    </div>
+    <SplitLayout
+      showHidden={false}
+      shownComponent={
+        <Layout>
+          <Spacer mt="xl">
+            <Intro />
+          </Spacer>
+          {renderedIds.map((id) => {
+            const current = data[id];
+            return (
+              <Spacer mt="xl" key={current.id}>
+                <ul>
+                  <Spacer my="sm">
+                    <OutgoingMessage label={current.label} />
+                  </Spacer>
+                  <Spacer my="sm">
+                    <IncomingMessages
+                      messages={current.texts}
+                      onRest={() => setIsTyping(false)}
+                      scrollToRef={buttonRef}
+                    />
+                  </Spacer>
+                </ul>
+              </Spacer>
+            );
+          })}
+          <Typer shouldRender={renderedIds.length !== 0} isOngoing={isTyping} />
+          <div ref={buttonRef}>
+            <OptionsGroup
+              shouldRender={!isTyping && !isDone}
+              data={data}
+              active={renderedIds}
+              onClick={triggerAnswer}
+              shouldScroll={!isDone}
+            />
+          </div>
+          <AnimatePresence>
+            {isDone && (
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                <Spacer
+                  my="xl"
+                  style={{
+                    backgroundColor: 'var(--gray-50)',
+                    padding: '2em',
+                    borderRadius: '14px',
+                    textAlign: 'center'
+                  }}
+                >
+                  <span style={{ fontSize: '0.9rem' }}>
+                    Hey, thanks for making it this far! Drop me an email at{' '}
+                    <a href="mailto:tamask@hey.com">tamask@hey.com</a>
+                  </span>
+                </Spacer>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </Layout>
+      }
+      hiddenComponent={
+        <Spacer mt="3xl" style={{ backgroundColor: 'white', padding: '8em 0' }}>
+          <Layout>
+            <div style={{ textAlign: 'center' }}>
+              <h2>Some of my work</h2>
+            </div>
+          </Layout>
+        </Spacer>
+      }
+    />
   );
 }
