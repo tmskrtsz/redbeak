@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Message, MessageMeta } from '../components/message';
 import { motion } from 'framer-motion';
 import { useScrollIntoView } from '../hooks/useScrollIntoView';
@@ -10,10 +10,12 @@ type OutgoingMessageProps = {
 export function OutgoingMessage(props: OutgoingMessageProps) {
   const now = new Date();
   const time = new Intl.DateTimeFormat('en-GB', { timeStyle: 'short' }).format(now);
-  const scroll = useScrollIntoView();
+  const ref = useRef<HTMLDivElement>(null);
+  const scroll = useScrollIntoView(ref);
 
   return (
     <motion.div
+      ref={ref}
       initial={{
         x: 10
       }}

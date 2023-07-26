@@ -1,8 +1,8 @@
 import { MutableRefObject } from 'react';
 
-export function useScrollIntoView(ref: MutableRefObject<HTMLElement>) {
+export function useScrollIntoView(ref: MutableRefObject<HTMLElement | HTMLDivElement | null>) {
   function scroll() {
-    if (!ref) return;
+    if (!ref.current) return;
 
     ref.current.scrollIntoView({
       behavior: 'smooth',
