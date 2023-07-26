@@ -1,7 +1,3 @@
-import { Message } from 'telegraf/typings/core/types/typegram';
-
-export type Location = Message.LocationMessage['location'];
-
 export type GeoResponse = {
   display_name: string;
   address: {
