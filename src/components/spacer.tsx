@@ -1,4 +1,4 @@
-import React, { ComponentProps, MutableRefObject, forwardRef } from 'react';
+import React, { ComponentProps, ForwardedRef, forwardRef } from 'react';
 import cx from 'classnames';
 import styles from './spacer.module.css';
 
@@ -23,7 +23,7 @@ type SpacerProps = {
 
 export const Spacer = forwardRef(function Spacer(
   props: SpacerProps,
-  ref: MutableRefObject<HTMLDivElement>
+  ref: ForwardedRef<HTMLDivElement>
 ) {
   const { children, my, mt, mb, className, ...rest } = props;
 

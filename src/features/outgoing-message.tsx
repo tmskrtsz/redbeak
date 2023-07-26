@@ -10,7 +10,7 @@ type OutgoingMessageProps = {
 export function OutgoingMessage(props: OutgoingMessageProps) {
   const now = new Date();
   const time = new Intl.DateTimeFormat('en-GB', { timeStyle: 'short' }).format(now);
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement | null>(null);
   const scroll = useScrollIntoView(ref);
 
   return (

@@ -8,7 +8,7 @@ export function Intro(props: ComponentProps<'button'>) {
   return (
     <div className={styles.intro}>
       <h1>
-        I'm Tamás, web developer, <strong>ask me anything ✨</strong>
+        I&apos;m Tamás, web developer, <strong>ask me anything ✨</strong>
       </h1>
       {/* TODO: Finish this */}
       <Spacer mt="xs" style={{ display: 'none' }}>

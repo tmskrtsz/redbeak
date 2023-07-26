@@ -15,7 +15,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 export default function Home() {
   const [renderedIds, setRenderedIds] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
-  const buttonRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLDivElement | null>(null);
   const isDone = renderedIds.length === data.length;
 
   function triggerAnswer(id: number) {
