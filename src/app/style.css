@@ -88,11 +88,11 @@ button {
   all: unset;
 }
 
-a[href^=http] {
+a[href^='http'] {
   cursor: pointer;
   color: var(--red-300);
 }
 
-a[href^=http]:hover {
+a[href^='http']:hover {
   color: var(--red-400);
 }

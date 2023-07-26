@@ -18,9 +18,13 @@ type SpacerProps = {
       mb?: Size;
       mt?: Size;
     }
-) & ComponentProps<'div'>;
+) &
+  ComponentProps<'div'>;
 
-export const Spacer = forwardRef(function Spacer(props: SpacerProps, ref: MutableRefObject<HTMLDivElement>) {
+export const Spacer = forwardRef(function Spacer(
+  props: SpacerProps,
+  ref: MutableRefObject<HTMLDivElement>
+) {
   const { children, my, mt, mb, className, ...rest } = props;
 
   return (
@@ -33,7 +37,7 @@ export const Spacer = forwardRef(function Spacer(props: SpacerProps, ref: Mutabl
         },
         {
           [styles[`mt-${mt}`]]: mt,
-          [styles[`mb-${mb}`]]: mb,
+          [styles[`mb-${mb}`]]: mb
         },
         className
       )}
@@ -42,4 +46,4 @@ export const Spacer = forwardRef(function Spacer(props: SpacerProps, ref: Mutabl
       {children}
     </div>
   );
-})
+});

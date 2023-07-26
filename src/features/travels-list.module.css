@@ -1,7 +1,7 @@
 .container {
   line-height: 2.4;
   font-size: 0.9rem;
-  color:  var(--gray-500);
+  color: var(--gray-500);
 }
 
 .row {

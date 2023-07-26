@@ -13,7 +13,9 @@ export async function TravelsList() {
         {allLocations.map((location) => (
           <div key={location.created} className={styles.row}>
             <div className={styles.location}>
-              <span className={styles.city}><strong>{location.city}</strong>,</span>
+              <span className={styles.city}>
+                <strong>{location.city}</strong>,
+              </span>
               <span>{location.country}</span>
             </div>
             <span className={styles.date}>{formatDate(location.created)}</span>

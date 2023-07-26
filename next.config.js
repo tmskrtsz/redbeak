@@ -5,5 +5,4 @@ export default {
     turbo: true
   }
   /* config options here */
-}
-
+};

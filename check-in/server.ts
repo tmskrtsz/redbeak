@@ -51,9 +51,7 @@ bot.on('message', async (ctx) => {
    * Make sure that we didn't already check in
    */
   if (lastLocation) {
-    if (
-      lastLocation.city === geoLocation.city
-    ) {
+    if (lastLocation.city === geoLocation.city) {
       return await ctx.reply("You've already checked in! 🤓");
     }
   }

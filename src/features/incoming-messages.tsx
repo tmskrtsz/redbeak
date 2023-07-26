@@ -31,8 +31,8 @@ export function IncomingMessages(props: IncomingMessagesProps) {
     hidden: { opacity: 0, height: 0, x: -10 },
     shown: ([messages, i]) => {
       // TODO: Figure this out
-      const delay = getStaggerValues(messages)[i]
-      return { opacity: 1, height: 'auto', x: 0 }
+      const delay = getStaggerValues(messages)[i];
+      return { opacity: 1, height: 'auto', x: 0 };
     }
   };
 

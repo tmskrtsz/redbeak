@@ -1,7 +1,7 @@
-import { Suspense } from "react";
-import { Layout } from "../../components/layout";
-import { Spacer } from "../../components/spacer";
-import { TravelsList } from "../../features/travels-list";
+import { Suspense } from 'react';
+import { Layout } from '../../components/layout';
+import { Spacer } from '../../components/spacer';
+import { TravelsList } from '../../features/travels-list';
 
 export default function Travels() {
   return (
@@ -13,5 +13,5 @@ export default function Travels() {
         </Suspense>
       </Spacer>
     </Layout>
-  )
+  );
 }
