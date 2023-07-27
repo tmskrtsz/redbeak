@@ -14,7 +14,7 @@ export const data = [
     texts: [
       'At present, I work at <a href="https://www.happy-or-not.com/en" target="_blank">HappyOrNot</a>',
       'There I lead development on the Smiley Digital product',
-      'I also moonlight at <a href="https://auka.co">Auka.co</a>, where I design and develop apps and take part in shaping the business.'
+      'I also moonlight at <a href="https://auka.co" target="_blank">Auka.co</a>, where I design and develop apps and take part in shaping the business.'
     ]
   },
   {

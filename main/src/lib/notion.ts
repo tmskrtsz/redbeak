@@ -13,7 +13,10 @@ export async function getPastLocations() {
           direction: 'descending'
         }
       ]
-    })
+    }),
+    next: {
+      revalidate: 3600 * 12
+    }
   });
   const data = await res.json();
   return normalizeNotionResponse(data);
