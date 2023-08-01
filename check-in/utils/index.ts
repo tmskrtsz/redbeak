@@ -14,11 +14,18 @@ export async function getCountryByGeoData(latitude: number, longitude: number) {
 
 export async function getLastLocation(notion: Client) {
   const res = await notion.databases.query({
-    database_id: process.env.NOTION_DB!
+    database_id: process.env.NOTION_DB!,
+    sorts: [
+      {
+        property: 'created',
+        direction: 'descending'
+      }
+    ]
   });
 
-  const data = normalizeNotionResponse(res);
-  return data[data.length - 1];
+  const [data] = normalizeNotionResponse(res);
+
+  return data;
 }
 
 export function normalizeNotionResponse(data: QueryDatabaseResponse) {
