@@ -15,7 +15,7 @@ export async function getPastLocations() {
       ]
     }),
     next: {
-      revalidate: 3600 * 12
+      tags: ['location']
     }
   });
   const data = await res.json();
@@ -24,7 +24,7 @@ export async function getPastLocations() {
 
 export async function getLastLocation() {
   const data = await getPastLocations();
-  const last = data[0];
+  const [last] = data;
 
   return {
     city: last.city,

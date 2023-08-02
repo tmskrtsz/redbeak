@@ -1,12 +1,17 @@
-import { Telegraf, Markup } from 'telegraf';
-import 'dotenv/config';
-import { addNotionRow, getCountryByGeoData, getLastLocation } from './utils';
-import { Client } from '@notionhq/client';
+import { Telegraf, Markup } from "telegraf";
+import "dotenv/config";
+import {
+  addNotionRow,
+  getCountryByGeoData,
+  getLastLocation,
+  revalidateLocation,
+} from "./utils";
+import { Client } from "@notionhq/client";
 
 const config = {
   token: process.env.BOT_TOKEN!,
   userId: parseInt(process.env.USER_ID!),
-  notionToken: process.env.NOTION_TOKEN!
+  notionToken: process.env.NOTION_TOKEN!,
 };
 
 /**
@@ -18,14 +23,17 @@ const notion = new Client({ auth: config.notionToken });
 /**
  * Setup the keyboard button
  */
-bot.command('start', async (ctx) => {
-  await ctx.reply('👋', Markup.keyboard([Markup.button.locationRequest('Send Location')]).resize());
+bot.command("start", async (ctx) => {
+  await ctx.reply(
+    "👋",
+    Markup.keyboard([Markup.button.locationRequest("Send Location")]).resize()
+  );
 });
 
 /**
  * Listen for messages
  */
-bot.on('message', async (ctx) => {
+bot.on("message", async (ctx) => {
   console.log(`Message received from ${ctx.from.username}`);
 
   if (ctx.from.id !== config.userId) {
@@ -33,10 +41,10 @@ bot.on('message', async (ctx) => {
   }
 
   // Only listen for location messages
-  const location = 'location' in ctx.message && ctx.message.location;
+  const location = "location" in ctx.message && ctx.message.location;
 
   if (!location) {
-    return await ctx.reply('Please provide location data ✈️');
+    return await ctx.reply("Please provide location data ✈️");
   }
 
   const date = new Date(ctx.message.date * 1000).toISOString();
@@ -44,7 +52,10 @@ bot.on('message', async (ctx) => {
   /**
    * Reach out to a geo location api
    */
-  const geoLocation = await getCountryByGeoData(location.latitude, location.longitude);
+  const geoLocation = await getCountryByGeoData(
+    location.latitude,
+    location.longitude
+  );
   const lastLocation = await getLastLocation(notion);
 
   /**
@@ -55,22 +66,27 @@ bot.on('message', async (ctx) => {
       return await ctx.reply("You've already checked in! 🤓");
     }
   }
-  console.log(`Saving new location to notion: ${geoLocation.city}`);
 
+  await ctx.reply('Saving new location to notion ⏳');
+  console.log(`Saving new location to notion: ${geoLocation.city}`);
+  
   await addNotionRow(notion, {
     ...geoLocation,
     ...location,
-    date
+    date,
   });
 
   console.log(`Saved location to notion ✈️`);
   await ctx.reply(
     `Have fun in ${geoLocation.city}, ${geoLocation.country}, buddy! 😘`,
-    Markup.keyboard([Markup.button.locationRequest('Send Location')]).resize()
+    Markup.keyboard([Markup.button.locationRequest("Send Location")]).resize()
   );
+
+  console.log(`Revalidating remote data`);
+  await revalidateLocation();
 });
 
-bot.launch().then(() => console.log('Server started ✌️'));
+bot.launch().then(() => console.log("Server started ✌️"));
 
-process.once('SIGINT', () => bot.stop('SIGINT'));
-process.once('SIGTERM', () => bot.stop('SIGTERM'));
+process.once("SIGINT", () => bot.stop("SIGINT"));
+process.once("SIGTERM", () => bot.stop("SIGTERM"));

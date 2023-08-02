@@ -1,14 +1,16 @@
-import { Client } from '@notionhq/client';
-import { GeoResponse, NotionResponse, AddNotionRowData } from '../types/utils';
-import { QueryDatabaseResponse } from '@notionhq/client/build/src/api-endpoints';
+import { Client } from "@notionhq/client";
+import { GeoResponse, NotionResponse, AddNotionRowData } from "../types/utils";
+import { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
 
 export async function getCountryByGeoData(latitude: number, longitude: number) {
-  const res = await fetch(`https://geocode.maps.co/reverse?lat=${latitude}&lon=${longitude}`);
+  const res = await fetch(
+    `https://geocode.maps.co/reverse?lat=${latitude}&lon=${longitude}`
+  );
   const data: GeoResponse = await res.json();
 
   return {
     city: data.address.city,
-    country: data.address.country
+    country: data.address.country,
   };
 }
 
@@ -17,10 +19,10 @@ export async function getLastLocation(notion: Client) {
     database_id: process.env.NOTION_DB!,
     sorts: [
       {
-        property: 'created',
-        direction: 'descending'
-      }
-    ]
+        property: "created",
+        direction: "descending",
+      },
+    ],
   });
 
   const [data] = normalizeNotionResponse(res);
@@ -39,7 +41,7 @@ export function normalizeNotionResponse(data: QueryDatabaseResponse) {
       city: city.rich_text[0].plain_text,
       country: country.rich_text[0].plain_text,
       longitude: longitude.number,
-      latitude: latitude.number
+      latitude: latitude.number,
     });
   });
   return normalizedData;
@@ -48,47 +50,59 @@ export function normalizeNotionResponse(data: QueryDatabaseResponse) {
 export async function addNotionRow(notion: Client, data: AddNotionRowData) {
   await notion.pages.create({
     parent: {
-      database_id: 'be650928752f4d2cb87da501a795a577'
+      database_id: "be650928752f4d2cb87da501a795a577",
     },
     properties: {
       id: {
         title: [
           {
             text: {
-              content: 'Location'
-            }
-          }
-        ]
+              content: "Location",
+            },
+          },
+        ],
       },
       created: {
         date: {
-          start: data.date
-        }
+          start: data.date,
+        },
       },
       city: {
         rich_text: [
           {
             text: {
-              content: data.city
-            }
-          }
-        ]
+              content: data.city,
+            },
+          },
+        ],
       },
       country: {
         rich_text: [
           {
             text: {
-              content: data.country
-            }
-          }
-        ]
+              content: data.country,
+            },
+          },
+        ],
       },
       longitude: {
-        number: data.longitude
+        number: data.longitude,
       },
       latitude: {
-        number: data.latitude
-      }
-    }
+        number: data.latitude,
+      },
+    },
   });
+}
+
+export async function revalidateLocation() {
+  const token = process.env.REVALIDATION_TOKEN;
+  const tag = "location";
+  const url = `${process.env.REMOTE_BASE_URL}/api/revalidate?tag=${tag}&secret=${token}`;
+
+  try {
+    await fetch(url);
+  } catch (e) {
+    console.error(e);
+  }
 }
