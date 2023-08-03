@@ -6,7 +6,7 @@ import { Spacer } from '../components/spacer';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 import { useScrollIntoView } from '../hooks/useScrollIntoView';
 
-type OptionsGroup = {
+type OptionsGroupProps = {
   shouldRender: boolean;
   data: typeof data;
   active: number[];
@@ -14,7 +14,7 @@ type OptionsGroup = {
   shouldScroll: boolean;
 };
 
-export default function OptionsGroup(props: OptionsGroup) {
+export function OptionsGroup(props: OptionsGroupProps) {
   const { shouldRender, data, active, onClick, shouldScroll } = props;
   const groupRef = useRef<HTMLDialogElement | null>(null);
   const scroll = useScrollIntoView(groupRef);
@@ -59,7 +59,7 @@ export default function OptionsGroup(props: OptionsGroup) {
                     key={button.id}
                     variants={buttons}
                     onClick={() => onClick(button.id)}
-                    onAnimationComplete={shouldScroll && scroll}
+                    onAnimationComplete={shouldScroll && (() => scroll())}
                   >
                     {button.label}
                   </AnimatedButton>

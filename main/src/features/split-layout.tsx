@@ -4,6 +4,7 @@ type SplitLayoutProps = {
   showHidden: boolean;
   shownComponent: React.ReactNode;
   hiddenComponent: React.ReactNode;
+  onAnimationComplete?: () => void;
 };
 
 export function SplitLayout(props: SplitLayoutProps) {
@@ -25,6 +26,7 @@ export function SplitLayout(props: SplitLayoutProps) {
               bounce: 0,
               ease: 'anticipate'
             }}
+            onAnimationComplete={props.onAnimationComplete}
           >
             {props.hiddenComponent}
           </motion.div>

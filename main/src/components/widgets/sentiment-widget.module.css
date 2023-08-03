@@ -1,0 +1,98 @@
+.container {
+  padding: 2em;
+  color: #212121;
+  --green: #71d461;
+  --yellow: #fdc942;
+  --red: #f85b5b;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+
+.header span {
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.header h3 {
+  color: #212121;
+}
+
+.bar {
+  width: 100%;
+  height: 16px;
+  display: flex;
+  gap: 0.2em;
+}
+
+.bar div {
+  background-color: gray;
+  border-radius: 4px;
+}
+
+.bar div:nth-child(1) {
+  background-color: var(--red);
+}
+
+.bar div:nth-child(2) {
+  background-color: var(--yellow);
+}
+
+.bar div:nth-child(3) {
+  background-color: var(--green);
+}
+
+.sentimentRow {
+  display: flex;
+  gap: 0.5em;
+}
+
+.sentiment {
+  font-size: 0.9rem;
+  display: flex;
+  gap: 0.1em;
+}
+
+.sentiment svg {
+  width: 18px;
+  height: 18px;
+}
+
+.sentiment:nth-child(1) svg {
+  color: var(--red);
+}
+
+.sentiment:nth-child(2) svg {
+  color: var(--yellow);
+}
+.sentiment:nth-child(3) svg {
+  color: var(--green);
+}
+
+.lower {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lower button {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+  cursor: pointer;
+  color: #4f7ff8;
+}
+
+.lower button:hover {
+  color: #1053ff;
+}
+
+.lower button svg {
+  width: 12px;
+  height: 12px;
+  opacity: 0.5;
+}

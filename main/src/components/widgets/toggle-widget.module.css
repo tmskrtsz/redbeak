@@ -1,0 +1,75 @@
+.container {
+  margin-top: 1.5em;
+  display: flex;
+  justify-content: center;
+}
+
+.toggle {
+  width: 50%;
+  background: linear-gradient(221deg, #f47c57 0%, #fb26ff 100%);
+  border-radius: 24px;
+  padding: 2em;
+  border: 1px solid #f47c57;
+  text-align: center;
+}
+
+.toggle h2,
+.toggle span {
+  color: white;
+}
+
+.toggle span {
+  opacity: 0.6;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.switchContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.switch {
+  background-color: rgba(255, 255, 255, 0.6);
+  width: 80%;
+  height: 48px;
+  border-radius: 200px;
+  margin-top: 1em;
+  padding: 4px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px -5px rgba(0, 0, 0, 0.12);
+  display: flex;
+  justify-content: flex-start;
+}
+
+.switch[data-state='true'] {
+  justify-content: flex-end;
+}
+
+.handle {
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 64px;
+}
+
+@media screen and (min-width: 540px) {
+  .container {
+    margin-top: 0;
+    justify-content: flex-end;
+  }
+
+  .toggle {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    margin-top: 1.5em;
+  }
+
+  .toggle {
+    width: 50%;
+  }
+}

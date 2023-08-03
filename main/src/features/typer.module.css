@@ -17,7 +17,7 @@
 .typer > span i {
   width: 8px;
   height: 8px;
-  background-color: var(--gray-300);
+  background-color: var(--salmon-300);
   display: inline-block;
   border-radius: 24px;
   animation: bounce 0.5s ease-in-out infinite alternate;
@@ -29,7 +29,7 @@
 
 span.status {
   font-size: 0.85rem;
-  color: var(--gray-400);
+  color: var(--salmon-400);
 }
 
 @keyframes bounce {

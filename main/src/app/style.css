@@ -1,23 +1,50 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 :root {
   --layout-w: 588px;
 
-  --spacing-y-xs: 0.8em;
-  --spacing-y-sm: 1.4em;
-  --spacing-y-md: 2.45em;
-  --spacing-y-lg: 3.67em;
-  --spacing-y-xl: 4.43em;
-  --spacing-y-2xl: 6.21em;
-  --spacing-y-3xl: 8.76em;
+  --spacing-y-xs: 0.4em;
+  --spacing-y-sm: 0.85em;
+  --spacing-y-md: 1.45em;
+  --spacing-y-lg: 2.67em;
+  --spacing-y-xl: 3.43em;
+  --spacing-y-2xl: 4.2em;
+  --spacing-y-3xl: 6.23em;
 
   --ease: cubic-bezier(0.18, 0.89, 0.32, 1.28);
 }
 
-.gray-theme {
-  --page-bg: #f8f7f7;
+@media screen and (min-width: 768px) {
+  :root {
+    --spacing-y-xs: 0.8em;
+    --spacing-y-sm: 1.4em;
+    --spacing-y-md: 2.45em;
+    --spacing-y-lg: 3.67em;
+    --spacing-y-xl: 4.43em;
+    --spacing-y-2xl: 6.21em;
+    --spacing-y-3xl: 8.76em;
+  }
+}
+
+.light-theme {
+  --page-bg: #feeff2;
   --red-300: #e86666;
   --red-400: #f02120;
   --red-700: #bd1a1a;
   --black: #0b0502;
+
+  --salmon-700: #6d5555;
+  --salmon-500: #c09998;
+  --salmon-400: #c09998;
+  --salmon-300: #b59494;
+  --salmon-200: #d3baba;
+  --salmon-100: #e3c9c8;
+  --salmon-50: #f5dcdc;
+
   --gray-700: #434343;
   --gray-500: #505050;
   --gray-400: #808080;
@@ -25,31 +52,10 @@
   --gray-200: #d7d3d3;
   --gray-100: #e2e2e2;
   --gray-50: #eaeaea;
-  --chat-incoming-bg: var(--gray-50);
+
+  --chat-incoming-bg: var(--salmon-50);
   --chat-outgoing-bg: #fff;
   --button-normal: #fff;
-}
-
-.redbeak {
-  --page-bg: #feeff2;
-  --red-300: #e86666;
-  --red-400: #f02120;
-  --red-700: #bd1a1a;
-  --black: #0b0502;
-  --gray-700: #6d5555;
-  --gray-500: #c09998;
-  --gray-400: #c09998;
-  --gray-300: #b59494;
-  --gray-200: #d3baba;
-  --gray-100: #e3c9c8;
-  --gray-50: #f5dcdc;
-  --chat-incoming-bg: var(--gray-50);
-  --chat-outgoing-bg: #fff;
-  --button-normal: #fff;
-}
-
-html {
-  box-sizing: border-box;
 }
 
 body {
@@ -91,8 +97,14 @@ button {
 a[href^='http'] {
   cursor: pointer;
   color: var(--red-300);
+  text-decoration: underline;
 }
 
 a[href^='http']:hover {
   color: var(--red-400);
+  text-decoration: none;
+}
+
+a[target='_blank'] {
+  opacity: 0.5;
 }

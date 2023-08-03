@@ -22,7 +22,7 @@ export function OutgoingMessage(props: OutgoingMessageProps) {
       animate={{
         x: 0
       }}
-      onAnimationComplete={scroll}
+      onAnimationComplete={() => scroll()}
     >
       <Message variant="outgoing" metaComponent={<MessageMeta time={time} author="You" />}>
         {props.label}

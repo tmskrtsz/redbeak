@@ -3,7 +3,7 @@
 
 .message {
   border: 1px solid transparent;
-  color: var(--gray-700);
+  color: var(--salmon-700);
   padding: 0.8em 1em;
   font-size: 0.9rem;
   width: fit-content;
@@ -22,7 +22,7 @@
   background-color: var(--chat-outgoing-bg);
   box-shadow: 0 3px 4px -3px rgba(0, 0, 0, 0.1);
   border-bottom-right-radius: var(--chat-border-radius-cutoff);
-  border-color: var(--gray-100);
+  border-color: var(--salmon-100);
 }
 
 .list:first-child .incoming {
@@ -52,7 +52,7 @@
   gap: 12px;
   font-size: 0.75rem;
   margin-top: 0.5em;
-  color: var(--gray-400);
+  color: var(--salmon-400);
 }
 
 .meta time {
@@ -67,7 +67,7 @@
   transform: translateY(-50%);
   width: 4px;
   height: 4px;
-  background-color: gray;
+  background-color: var(--salmon-500);
   opacity: 0.2;
   border-radius: 12px;
 }

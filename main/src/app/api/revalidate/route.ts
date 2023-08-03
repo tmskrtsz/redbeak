@@ -6,7 +6,7 @@ export async function GET(req: NextRequest) {
   const token = process.env.REVALIDATION_TOKEN;
 
   if (secret !== token) {
-    return NextResponse.json({ message: 'Invalid token' }, { status: 401 })
+    return NextResponse.json({ message: 'Invalid token' }, { status: 401 });
   }
 
   const tag = req.nextUrl.searchParams.get('tag');

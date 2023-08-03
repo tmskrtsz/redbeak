@@ -10,33 +10,33 @@
 .default {
   background-color: var(--button-normal);
   border-radius: 100px;
-  border: 1px solid var(--gray-100);
-  color: var(--gray-700);
+  border: 1px solid var(--salmon-100);
+  color: var(--salmon-700);
 }
 
 .default:hover,
 .default:focus {
-  background-color: var(--gray-50);
+  background-color: var(--salmon-50);
 }
 
 .default:focus {
-  outline-color: var(--gray-50);
+  outline-color: var(--salmon-50);
 }
 
 .secondary {
-  color: var(--gray-700);
-  background-color: var(--gray-100);
+  color: var(--salmon-700);
+  background-color: var(--salmon-100);
   border-radius: 100px;
 }
 
 .secondary:hover {
-  background-color: var(--gray-200);
+  background-color: var(--salmon-200);
 }
 
 .secondary:active:focus {
   outline: 1px;
-  box-shadow: 0 0 0 2px white, 0 0 0 3px var(--gray-400);
-  background-color: var(--gray-300);
+  box-shadow: 0 0 0 2px white, 0 0 0 3px var(--salmon-400);
+  background-color: var(--salmon-300);
 }
 
 .link {

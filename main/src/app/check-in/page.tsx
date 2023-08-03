@@ -6,10 +6,8 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'redbeak • Check-in',
-  description:
-    'Wherever in the world I currently am',
+  description: 'Wherever in the world I currently am'
 };
-
 
 export default function Travels() {
   return (
