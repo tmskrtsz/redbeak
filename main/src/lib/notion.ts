@@ -46,6 +46,5 @@ export function normalizeNotionResponse(data) {
       latitude: latitude.number
     });
   });
-  console.log(normalizedData);
   return normalizedData;
 }
