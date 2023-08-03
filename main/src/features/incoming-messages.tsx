@@ -52,7 +52,7 @@ export function IncomingMessages(props: IncomingMessagesProps) {
           variants={item}
           key={message}
           ref={domRef}
-          onAnimationComplete={() => scroll()}
+          onAnimationEnd={() => scroll('end')}
         >
           <Spacer my="xs">
             <Message variant="incoming">

@@ -59,7 +59,7 @@ export function OptionsGroup(props: OptionsGroupProps) {
                     key={button.id}
                     variants={buttons}
                     onClick={() => onClick(button.id)}
-                    onAnimationComplete={shouldScroll && (() => scroll())}
+                    onAnimationStart={shouldScroll && (() => scroll())}
                   >
                     {button.label}
                   </AnimatedButton>
