@@ -3,10 +3,19 @@ import styles from './profile-widget.module.css';
 import avatar from '../../assets/work/mock_avatar.png';
 import Image from 'next/image';
 import cx from 'classnames';
-import { motion } from 'framer-motion';
+import { motion, useAnimate } from 'framer-motion';
 
 export function ProfileWidget() {
   const [isFollowing, setIsFollowing] = useState(false);
+  const [scope, animate] = useAnimate();
+
+  async function handleClick() {
+    setIsFollowing(!isFollowing);
+    if (!isFollowing) {
+      await animate(scope.current, { opacity: [0, 1, 0], y: [0, -32] }, { duration: 1.5 });
+    }
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -32,7 +41,12 @@ export function ProfileWidget() {
             <span>following</span>
           </div>
           <div className={styles.stat}>
-            <h4>1.2k</h4>
+            <h4 style={{ position: 'relative' }}>
+              1.2k
+              <span className={styles.statPlus} ref={scope}>
+                +1
+              </span>
+            </h4>
             <span>followers</span>
           </div>
         </div>
@@ -48,7 +62,7 @@ export function ProfileWidget() {
           <motion.button
             whileTap={{ scale: 0.96 }}
             whileHover={{ scale: 1.02 }}
-            onClick={() => setIsFollowing(!isFollowing)}
+            onClick={handleClick}
             className={cx(!isFollowing ? styles.buttonPrimary : styles.buttonSecondary)}
           >
             {!isFollowing ? (

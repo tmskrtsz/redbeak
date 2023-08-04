@@ -110,3 +110,12 @@ span.tag {
   background-color: #f6f6f6;
   color: gray;
 }
+
+.statPlus {
+  position: absolute;
+  right: -0.5em;
+  display: inline-block;
+  color: var(--gray-700) !important;
+  font-family: var(--font-headline);
+  font-weight: 600;
+}
