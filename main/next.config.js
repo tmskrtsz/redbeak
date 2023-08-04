@@ -2,7 +2,6 @@
 const nextConfig = {
   experimental: {
     swcMinify: true,
-    turbo: true
   }
   /* config options here */
 };

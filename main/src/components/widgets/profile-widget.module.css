@@ -118,4 +118,5 @@ span.tag {
   color: var(--gray-700) !important;
   font-family: var(--font-headline);
   font-weight: 600;
+  opacity: 0;
 }
