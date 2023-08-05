@@ -6,7 +6,7 @@ import {
   getLastLocation,
   revalidateLocation,
 } from "./utils";
-import { Client } from "@notionhq/client";
+import { Client, collectPaginatedAPI } from "@notionhq/client";
 
 const config = {
   token: process.env.BOT_TOKEN!,
@@ -52,10 +52,23 @@ bot.on("message", async (ctx) => {
   /**
    * Reach out to a geo location api
    */
-  const geoLocation = await getCountryByGeoData(
-    location.latitude,
-    location.longitude
-  );
+  let geoLocation: Awaited<ReturnType<typeof getCountryByGeoData>>;
+
+  try {
+    geoLocation = await getCountryByGeoData(
+      location.latitude,
+      location.longitude
+    );
+
+    if (!geoLocation) {
+      await ctx.reply('Hmm, there was a problem getting geo data')
+      throw new Error('Error retrieving location');
+    }
+  } catch(e) {
+    await ctx.reply('Hmm, there was a problem getting geo data')
+    throw new Error('Error retrieving location');
+  }
+
   const lastLocation = await getLastLocation(notion);
 
   /**
