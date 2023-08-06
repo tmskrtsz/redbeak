@@ -9,7 +9,7 @@ export async function getCountryByGeoData(latitude: number, longitude: number) {
   const data: GeoResponse = await res.json();
 
   return {
-    city: data.address.city,
+    city: data.address.city || data.address.village,
     country: data.address.country,
   };
 }

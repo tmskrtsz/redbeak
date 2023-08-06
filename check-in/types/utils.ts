@@ -9,6 +9,7 @@ export type GeoResponse = {
     postcode: string;
     country: string;
     country_code: string;
+    village: string;
   };
 };
 
