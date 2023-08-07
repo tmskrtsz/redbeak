@@ -3,6 +3,7 @@ import localFont from 'next/font/local';
 import { Inter } from 'next/font/google';
 import { Metadata } from 'next';
 import cx from 'classnames';
+import { Analytics } from '@vercel/analytics/react';
 
 import './style.css';
 import { Nav } from '../features/nav';
@@ -45,7 +46,8 @@ export const metadata: Metadata = {
       {
         url: 'metadata.png'
       }
-    ]
+    ],
+    description: 'I pair my design tuned eyeballs with a React toolkit to create great web experiences',
   }
 };
 
@@ -57,6 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Nav />
           {children}
         </main>
+         <Analytics />
       </body>
     </html>
   );

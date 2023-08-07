@@ -22,6 +22,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@vercel/analytics": "^1.0.1",
     "classnames": "^2.3.2",
     "framer-motion": "^10.12.18",
     "modern-normalize": "^2.0.0",
