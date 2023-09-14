@@ -7,6 +7,7 @@ import { Analytics } from '@vercel/analytics/react';
 
 import './style.css';
 import { Nav } from '../features/nav';
+import Script from 'next/script';
 
 const local = localFont({
   src: [
@@ -52,9 +53,12 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const isProd = process.env.NODE_ENV === 'production';
+
   return (
     <html lang="en" className={cx(local.variable, inter.variable, 'light-theme')}>
       <body>
+        {isProd ? <Script src="https://analytics.redbeak.net/js/script.js" defer={true} data-domain="redbeak.net" /> : null}
         <main>
           <Nav />
           {children}
