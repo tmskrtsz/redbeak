@@ -7,6 +7,7 @@ import { Analytics } from '@vercel/analytics/react';
 
 import './style.css';
 import { Nav } from '../features/nav';
+import Fathom from '../components/fathom';
 
 const local = localFont({
   src: [
@@ -55,6 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={cx(local.variable, inter.variable, 'light-theme')}>
       <body>
+        <Fathom />
         <main>
           <Nav />
           {children}
