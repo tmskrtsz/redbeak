@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import oneList from '../assets/work/1list.png';
 import auka from '../assets/work/auka.png';
-import { FadeUp } from '../components/faceup';
+import { FadeUp } from '../components/fadeup';
 import styles from './works.module.css';
 import { SentimentWidget } from '../components/widgets/sentiment-widget';
 import { ProfileWidget } from '../components/widgets/profile-widget';

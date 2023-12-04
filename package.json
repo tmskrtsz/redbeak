@@ -1,0 +1,14 @@
+{
+  "name": "redbeak",
+  "version": "6.0.0",
+  "description": "Portfolio and web presence for Tamás Kertész",
+  "author": "Tamás Kertész <tamask@hey.com>",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "only-allow": "^1.2.1",
+    "typescript": "^5.3.2"
+  }
+}

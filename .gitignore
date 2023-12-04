@@ -1,12 +1,10 @@
 .DS_Store
 node_modules
+.env
+.env*
+.log
 /build
-/.svelte-kit
-/package
-.netlify
 build
 .vercel_build_output
 .next
-.env*
-.log
 .vercel

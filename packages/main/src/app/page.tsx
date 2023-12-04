@@ -13,6 +13,7 @@ import { SplitLayout } from '../features/split-layout';
 import { Works } from '../features/works';
 import { useScrollIntoView } from '../hooks/useScrollIntoView';
 import { Button } from '../components/button';
+import { CTA } from '../features/cta';
 
 export default function Home() {
   const [renderedIds, setRenderedIds] = useState<number[]>([]);
@@ -102,8 +103,13 @@ export default function Home() {
               <h2>Recent work</h2>
             </div>
           </Layout>
-          <Spacer my="2xl">
+          <Spacer mt="2xl">
             <Works />
+          </Spacer>
+          <Spacer mt="2xl">
+            <Layout>
+              <CTA />
+            </Layout>
           </Spacer>
         </Spacer>
       }

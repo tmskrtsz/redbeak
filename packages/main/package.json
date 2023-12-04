@@ -1,7 +1,6 @@
 {
-  "name": "redbeak",
+  "name": "main",
   "version": "6.0.0",
-  "description": "Portfolio and web presence for Tamás Kertész",
   "author": "Tamás Kertész <tamask@hey.com>",
   "scripts": {
     "dev": "next dev",

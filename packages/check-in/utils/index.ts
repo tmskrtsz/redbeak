@@ -101,7 +101,9 @@ export async function revalidateLocation() {
   const url = `${process.env.REMOTE_BASE_URL}/api/revalidate?tag=${tag}&secret=${token}`;
 
   try {
-    await fetch(url);
+    const res = await fetch(url);
+    const dsa = await res.json();
+    return dsa.revalidated;
   } catch (e) {
     console.error(e);
   }

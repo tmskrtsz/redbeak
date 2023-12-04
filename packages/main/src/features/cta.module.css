@@ -1,0 +1,7 @@
+.container {
+  background-color: var(--salmon-50);
+  padding: 2em;
+  border-radius: 200px;
+  display:flex;
+  justify-content: space-between;
+}

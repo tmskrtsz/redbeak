@@ -16,7 +16,8 @@
 
 .default:hover,
 .default:focus {
-  background-color: var(--salmon-50);
+  background-color: var(--salmon-100);
+  border-color: var(--salmon-200);
 }
 
 .default:focus {
