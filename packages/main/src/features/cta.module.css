@@ -4,4 +4,24 @@
   border-radius: 200px;
   display:flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.mailto {
+  background-color: white;
+  display: inline-block;
+  padding: 0.8em 1.4em;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  border: 1px solid var(--salmon-100);
+  cursor: pointer;
+  color: var(--salmon-700);
+}
+
+.mailto:hover {
+  background-color: var(--salmon-100);
+}
+
+.mailto:focus {
+  background-color: var(--salmon-200);
 }
