@@ -3,8 +3,10 @@ import { GeoResponse, NotionResponse, AddNotionRowData } from "../types/utils";
 import { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
 
 export async function getCountryByGeoData(latitude: number, longitude: number) {
+  const apiKey = process.env.MAPSCO_API_KEY
+
   const res = await fetch(
-    `https://geocode.maps.co/reverse?lat=${latitude}&lon=${longitude}`
+    `https://geocode.maps.co/reverse?lat=${latitude}&lon=${longitude}&api_key=${apiKey}`
   );
   const data: GeoResponse = await res.json();
 
