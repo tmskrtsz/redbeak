@@ -20,8 +20,9 @@ export default function ToggleWidget() {
           <motion.div
             whileTap={{ scale: 0.95 }}
             data-state={isOn}
+            // @ts-ignore
             className={styles.switch}
-            onClick={handleSwitch}
+            onTap={handleSwitch}
           >
             <motion.div
               layout
@@ -34,6 +35,7 @@ export default function ToggleWidget() {
                   backgroundColor: 'white'
                 }
               }}
+              // @ts-ignore
               className={styles.handle}
               transition={{
                 type: 'spring',

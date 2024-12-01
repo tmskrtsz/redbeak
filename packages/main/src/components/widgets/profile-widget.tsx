@@ -61,8 +61,9 @@ export function ProfileWidget() {
         <div className={styles.follow}>
           <motion.button
             whileTap={{ scale: 0.96 }}
-            whileHover={{ scale: 1.02 }}
-            onClick={handleClick}
+            whileHover={{ scaleX: 1.1, scaleY: 1.05 }}
+            onTap={handleClick}
+            // @ts-ignore
             className={cx(!isFollowing ? styles.buttonPrimary : styles.buttonSecondary)}
           >
             {!isFollowing ? (
