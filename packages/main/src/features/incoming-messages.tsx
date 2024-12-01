@@ -1,4 +1,4 @@
-import React, { MutableRefObject, useRef } from 'react';
+import React, { RefObject, useRef } from 'react';
 import { Message } from '../components/message';
 import { Spacer } from '../components/spacer';
 import { Variants, motion } from 'framer-motion';
@@ -8,7 +8,7 @@ import styles from '../components/message.module.css';
 type IncomingMessagesProps = {
   messages: string[];
   onRest?: () => void;
-  scrollToRef?: MutableRefObject<HTMLDivElement>;
+  scrollToRef?: RefObject<HTMLDivElement>;
 };
 
 export function IncomingMessages(props: IncomingMessagesProps) {
@@ -48,6 +48,7 @@ export function IncomingMessages(props: IncomingMessagesProps) {
       {messages.map((message, i, array) => (
         <motion.li
           custom={[array, i]}
+          // @ts-ignore
           className={styles.list}
           variants={item}
           key={message}

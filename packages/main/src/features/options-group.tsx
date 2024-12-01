@@ -16,7 +16,7 @@ type OptionsGroupProps = {
 
 export function OptionsGroup(props: OptionsGroupProps) {
   const { shouldRender, data, active, onClick, shouldScroll } = props;
-  const groupRef = useRef<HTMLDialogElement | null>(null);
+  const groupRef = useRef<HTMLDivElement | null>(null);
   const scroll = useScrollIntoView(groupRef);
 
   const AnimatedButton = motion(Button);

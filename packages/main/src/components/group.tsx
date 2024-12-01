@@ -1,4 +1,4 @@
-import React, { MutableRefObject, forwardRef } from 'react';
+import React, { RefObject, forwardRef } from 'react';
 import styles from './group.module.css';
 
 type GroupProps = {
@@ -7,7 +7,7 @@ type GroupProps = {
 
 export const Group = forwardRef(function Group(
   props: GroupProps,
-  ref: MutableRefObject<HTMLDivElement>
+  ref: RefObject<HTMLDivElement>
 ) {
   const { children, ...rest } = props;
   return (
