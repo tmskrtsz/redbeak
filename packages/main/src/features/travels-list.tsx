@@ -1,16 +1,17 @@
 import React from 'react';
-import { getPastLocations } from '../lib/notion';
 import styles from './travels-list.module.css';
 import { formatDate } from '../lib/utils';
 import { Spacer } from '../components/spacer';
 
-export async function TravelsList() {
-  const allLocations = await getPastLocations();
+type TravelsListProps = {
+  locations: any[];
+};
 
+export function TravelsList({ locations }: TravelsListProps) {
   return (
     <Spacer mt="xl">
       <div className={styles.container}>
-        {allLocations.map((location) => (
+        {locations.map((location) => (
           <div key={location.created} className={styles.row}>
             <div className={styles.location}>
               <span className={styles.city}>

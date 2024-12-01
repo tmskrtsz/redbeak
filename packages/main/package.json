@@ -3,31 +3,35 @@
   "version": "6.0.0",
   "author": "Tamás Kertész <tamask@hey.com>",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
     "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
   },
   "devDependencies": {
     "@types/node": "20.4.1",
-    "@types/react": "18.2.14",
+    "@types/react": "npm:types-react@19.0.0-rc.1",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
     "eslint": "^8.45.0",
-    "eslint-config-next": "^13.4.12",
+    "eslint-config-next": "15.0.3",
     "eslint-config-prettier": "^8.3.0",
     "prettier": "^2.4.1",
     "typescript": "^5.1.6"
   },
   "type": "module",
   "dependencies": {
+    "@notionhq/client": "^2.2.15",
     "@vercel/analytics": "^1.0.1",
     "classnames": "^2.3.2",
     "fathom-client": "^3.5.0",
     "framer-motion": "^10.12.18",
     "modern-normalize": "^2.0.0",
-    "next": "^14.0.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "next": "15.0.3",
+    "react": "19.0.0-rc-66855b96-20241106",
+    "react-dom": "19.0.0-rc-66855b96-20241106"
+  },
+  "overrides": {
+    "@types/react": "npm:types-react@19.0.0-rc.1"
   }
 }

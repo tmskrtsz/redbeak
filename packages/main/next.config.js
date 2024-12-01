@@ -1,9 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  experimental: {
-    swcMinify: true,
-  }
-  /* config options here */
-};
+const nextConfig = {};
 
 export default nextConfig;

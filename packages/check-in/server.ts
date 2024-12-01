@@ -6,7 +6,7 @@ import {
   getLastLocation,
   revalidateLocation,
 } from "./utils";
-import { Client, collectPaginatedAPI } from "@notionhq/client";
+import { Client } from "@notionhq/client";
 
 const config = {
   token: process.env.BOT_TOKEN!,

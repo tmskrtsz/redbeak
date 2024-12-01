@@ -34,7 +34,6 @@ export async function getLastLocation(notion: Client) {
 
 export function normalizeNotionResponse(data: QueryDatabaseResponse) {
   const normalizedData: NotionResponse[] = [];
-
   data.results.forEach((entry) => {
     //@ts-ignore
     const { created, city, country, longitude, latitude } = entry.properties;
