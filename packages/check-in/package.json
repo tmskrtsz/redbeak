@@ -6,13 +6,12 @@
   "author": "Tamas Kertesz",
   "license": "MIT",
   "scripts": {
-    "dev": "tsx watch server.ts",
-    "start": "tsx --experimental-fetch server.ts"
+    "dev": "bun --watch server.ts",
+    "start": "bun server.ts"
   },
   "dependencies": {
     "@notionhq/client": "^2.2.8",
-    "telegraf": "^4.12.2",
-    "tsx": "^3.12.7"
+    "telegraf": "^4.12.2"
   },
   "devDependencies": {
     "dotenv": "^16.3.1"
